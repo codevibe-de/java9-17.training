@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE project>
+
+<project default="build">
+
+	<import file="../shared/build.xml" />
+
+	<target name="build">
+		<delete dir="${basedir}/build" failonerror="false" />
+		<mkdir dir="${basedir}/build" />
+		<javac srcdir="${basedir}/src" destdir="${basedir}/build" nowarn="true" debug="true" failonerror="true" includeantruntime="false"/>
+		<jar basedir="${basedir}/build" filesetmanifest="merge" destfile="${basedir}/build/util.jar"  />
+	</target>
+
+</project>

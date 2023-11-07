@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/java9-17.training.iml" filepath="$PROJECT_DIR$/.idea/java9-17.training.iml" />
+      <module fileurl="file://$PROJECT_DIR$/x02-jpms/shared/shared.iml" filepath="$PROJECT_DIR$/x02-jpms/shared/shared.iml" />
+      <module fileurl="file://$PROJECT_DIR$/x02-jpms/x02-jpms.iml" filepath="$PROJECT_DIR$/x02-jpms/x02-jpms.iml" />
+      <module fileurl="file://$PROJECT_DIR$/x02-jpms/x0201-problems-classpath/x0201-problems-classpath.iml" filepath="$PROJECT_DIR$/x02-jpms/x0201-problems-classpath/x0201-problems-classpath.iml" />
+      <module fileurl="file://$PROJECT_DIR$/x02-jpms/x0201-problems-classpath-appl/x0201-problems-classpath-appl.iml" filepath="$PROJECT_DIR$/x02-jpms/x0201-problems-classpath-appl/x0201-problems-classpath-appl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/x02-jpms/x0201-problems-classpath-modA/x0201-problems-classpath-modA.iml" filepath="$PROJECT_DIR$/x02-jpms/x0201-problems-classpath-modA/x0201-problems-classpath-modA.iml" />
+      <module fileurl="file://$PROJECT_DIR$/x02-jpms/x0201-problems-classpath-modB/x0201-problems-classpath-modB.iml" filepath="$PROJECT_DIR$/x02-jpms/x0201-problems-classpath-modB/x0201-problems-classpath-modB.iml" />
+    </modules>
+  </component>
+</project>

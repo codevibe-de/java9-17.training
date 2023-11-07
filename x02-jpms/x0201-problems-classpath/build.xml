@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE project>
+
+<project default="run">
+
+	<import file="../shared/build.xml" />
+
+	<target name="build-modA">
+		<build name="modA">
+		</build>
+	</target>
+
+	<target name="build-modB">
+		<build name="modB">
+		</build>
+	</target>
+
+	<target name="build-appl" depends="build-modA, build-modB">
+		<build name="appl">
+			<paths>
+				<classpath location="${basedir}/build/modA.jar" />
+				<classpath location="${basedir}/build/modB.jar" />
+			</paths>
+		</build>
+	</target>
+
+	<target name="run" depends="build-appl">
+		<java classname="jj.appl.Application" fork="true">
+			<classpath location="${basedir}/build/modB.jar" />
+			<classpath location="${basedir}/build/modA.jar" />
+			<classpath location="${basedir}/build/appl.jar" />
+		</java>
+	</target>
+
+</project>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE project>
+
+<project>
+	<property name="workspace" value="${basedir}/.." />
+	<property name="shared" value="${workspace}/shared" />
+	<property name="dependencies" value="${workspace}/dependencies" />
+	
+	<macrodef name="build">
+		<attribute name="name"/>
+		<sequential>
+			<delete dir="${basedir}-@{name}/tmp" failonerror="false" />
+			<mkdir dir="${basedir}-@{name}/tmp" />
+			<javac srcdir="${basedir}-@{name}/src"
+					destdir="${basedir}-@{name}/tmp" 
+					nowarn="true" 
+					debug="true" 
+					failonerror="false" 
+					includeantruntime="false">
+			</javac>
+			<jar basedir="${basedir}-@{name}/tmp" filesetmanifest="merge" destfile="${basedir}/build/@{name}.jar"  />
+			<delete dir="${basedir}-@{name}/tmp" failonerror="false" />
+		</sequential>
+	</macrodef>
+
+</project>
