@@ -5,7 +5,6 @@
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/x02-jpms/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/x02-jpms/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/x02-jpms/x0201-problems-classpath/appl/src" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/x02-jpms/x0201-problems-classpath/appl/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/x02-jpms/x0201-problems-classpath/appl/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/x02-jpms/x0201-problems-classpath/modA/src" charset="UTF-8" />
@@ -13,5 +12,9 @@
     <file url="file://$PROJECT_DIR$/x02-jpms/x0201-problems-classpath/modA/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/x02-jpms/x0201-problems-classpath/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/x02-jpms/x0201-problems-classpath/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/x02-jpms/x0201-problems-classpath/x0201-appl/src" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/x02-jpms/x0201-problems-classpath/x0201-modA/src" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/x02-jpms/x0201-problems-classpath/x0201-modB/src" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/x02-jpms/x0201-problems-classpath/x0201-modB/src/main/resources" charset="UTF-8" />
   </component>
 </project>

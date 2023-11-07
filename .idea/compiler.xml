@@ -6,7 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="appl" />
+        <module name="x0201-appl" />
+        <module name="x0201-modB" />
         <module name="x0201-modA" />
       </profile>
     </annotationProcessing>

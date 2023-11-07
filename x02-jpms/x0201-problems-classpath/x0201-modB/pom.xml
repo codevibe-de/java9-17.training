@@ -6,16 +6,14 @@
 
     <parent>
         <groupId>de.codevibe</groupId>
-        <artifactId>x02-jpms</artifactId>
+        <artifactId>x0201-problems-classpath</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>x0201-problems-classpath</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>x0201-appl</module>
-        <module>x0201-modA</module>
-        <module>x0201-modB</module>
-    </modules>
+    <artifactId>x0201-modB</artifactId>
+
+    <build>
+        <sourceDirectory>src</sourceDirectory>
+    </build>
 
 </project>
