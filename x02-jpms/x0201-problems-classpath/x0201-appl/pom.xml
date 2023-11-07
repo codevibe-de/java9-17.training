@@ -14,9 +14,20 @@
 
     <build>
         <sourceDirectory>src</sourceDirectory>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <mainClass>jj.appl.Application</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
 
     <dependencies>
+        <!-- changing order of modA and modB results in different outputs -->
         <dependency>
             <groupId>de.codevibe</groupId>
             <artifactId>x0201-modA</artifactId>
@@ -28,4 +39,5 @@
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
+
 </project>
