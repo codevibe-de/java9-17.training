@@ -8,15 +8,19 @@
 	
 	<macrodef name="build">
 		<attribute name="name"/>
+		<element name="prepare" optional="true"/>
+		<element name="paths" optional="true"/>
 		<sequential>
 			<delete dir="${basedir}-@{name}/tmp" failonerror="false" />
 			<mkdir dir="${basedir}-@{name}/tmp" />
+			<prepare/>
 			<javac srcdir="${basedir}-@{name}/src"
 					destdir="${basedir}-@{name}/tmp" 
 					nowarn="true" 
 					debug="true" 
 					failonerror="false" 
 					includeantruntime="false">
+				<paths/>
 			</javac>
 			<jar basedir="${basedir}-@{name}/tmp" filesetmanifest="merge" destfile="${basedir}/build/@{name}.jar"  />
 			<delete dir="${basedir}-@{name}/tmp" failonerror="false" />
