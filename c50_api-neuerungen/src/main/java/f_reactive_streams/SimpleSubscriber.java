@@ -1,25 +1,30 @@
-package f_reactive1;
+package f_reactive_streams;
+
+import z_utils.TimedLogger;
 
 import java.util.concurrent.Flow;
 
 public class SimpleSubscriber implements Flow.Subscriber<String> {
 
+    private final String id;
+    private final TimedLogger logger;
     private Flow.Subscription subscription;
 
-    public SimpleSubscriber(Flow.Publisher<String> publisher) {
-        publisher.subscribe(this);
+    public SimpleSubscriber(String id, TimedLogger logger) {
+        this.id = id;
+        this.logger = logger;
     }
 
     @Override
     public void onSubscribe(Flow.Subscription subscription) {
         this.subscription = subscription;
-        log("onSubscribe(..)");
+        this.logger.log("%s: onSubscribe(..)", this.id);
         this.subscription.request(1);
     }
 
     @Override
     public void onNext(String item) {
-        log(String.format("onNext(%s)", item));
+        logger.log("%s: onNext(%s)", this.id, item);
         this.subscription.request(1);
         try {
             Thread.sleep(250);
@@ -30,21 +35,13 @@ public class SimpleSubscriber implements Flow.Subscriber<String> {
 
     @Override
     public void onError(Throwable throwable) {
-        log(String.format("onError(%s:%s)", throwable.getClass().getSimpleName(), throwable.getMessage()));
+        this.logger.log("%s: onError(%s:%s)",
+                this.id, throwable.getClass().getSimpleName(), throwable.getMessage());
     }
 
     @Override
     public void onComplete() {
-        log("onComplete()");
-    }
-
-    private void log(String msg) {
-        System.out.printf(
-                "[%s] %d %s\n",
-                Thread.currentThread().getName(),
-                System.currentTimeMillis(),
-                msg);
-
+        this.logger.log("%s: onComplete()", this.id);
     }
 
 }

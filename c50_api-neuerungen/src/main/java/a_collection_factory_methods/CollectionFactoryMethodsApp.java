@@ -1,12 +1,15 @@
 package a_collection_factory_methods;
 
+import z_utils.MethodLogger;
+
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 import static java.util.Map.entry;
 
-public class Application {
+@SuppressWarnings({"ThrowablePrintedToSystemOut", "DataFlowIssue"})
+public class CollectionFactoryMethodsApp {
 
     public static void main(String[] args) {
         demoListOf();
@@ -16,7 +19,8 @@ public class Application {
     }
 
     static void demoListOf() {
-//        Log.logMethodCall();
+        MethodLogger.logMethodCall();
+
         final List<Integer> list = List.of(1, 2, 3);
         list.forEach(System.out::println);
         System.out.println(list.getClass());
@@ -33,8 +37,10 @@ public class Application {
         System.out.println(list3);
     }
 
+
     static void demoSetOf() {
-//        Log.logMethodCall();
+        MethodLogger.logMethodCall();
+
         final Set<String> set = Set.of("red", "green", "blue");
         set.forEach(System.out::println);
         System.out.println(set.getClass());
@@ -46,9 +52,15 @@ public class Application {
         }
     }
 
+
     static void demoMapOf() {
-//        Log.logMethodCall();
-        final Map<Integer, String> map = Map.of(42, "red", 43, "green", 44, "blue");
+        MethodLogger.logMethodCall();
+
+        final Map<Integer, String> map = Map.of(
+                42, "red",
+                43, "green",
+                44, "blue"
+        );
         map.forEach((k, v) -> System.out.println(k + " => " + v));
         System.out.println(map.getClass());
 
@@ -59,9 +71,15 @@ public class Application {
         }
     }
 
+
     static void demoMapOfEntries() {
-//        Log.logMethodCall();
-        final Map<Integer, String> map = Map.ofEntries(entry(77, "RED"), entry(78, "GREEN"), entry(79, "BLUE"));
+        MethodLogger.logMethodCall();
+
+        final Map<Integer, String> map = Map.ofEntries(
+                entry(77, "RED"),
+                entry(78, "GREEN"),
+                entry(79, "BLUE")
+        );
         map.forEach((k, v) -> System.out.println(k + " => " + v));
         System.out.println(map.getClass());
 
