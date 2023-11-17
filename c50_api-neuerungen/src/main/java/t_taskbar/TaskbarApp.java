@@ -1,35 +1,40 @@
 package t_taskbar;
 
 import javax.imageio.ImageIO;
+import javax.swing.*;
 import java.awt.*;
 import java.awt.Taskbar.Feature;
-import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Arrays;
 
 public class TaskbarApp {
 
     public static void main(String[] args) throws InterruptedException, IOException {
-        var taskbar = Taskbar.getTaskbar();
+        if (Taskbar.isTaskbarSupported()) {
+            var taskbar = Taskbar.getTaskbar();
 
-        listSupportedFeatures(taskbar);
+            listSupportedFeatures(taskbar);
 
-        Frame frame = new Frame();
-        frame.setVisible(true);
+            Frame frame = new JFrame("Toolbar API Demo");
+            frame.setVisible(true);
 
-        if (taskbar.isSupported(Feature.PROGRESS_VALUE_WINDOW)) {
-            setWindowProgressValue(taskbar, frame);
+
+            if (taskbar.isSupported(Feature.PROGRESS_VALUE_WINDOW)) {
+                setWindowProgressValue(taskbar, frame);
+            }
+            if (taskbar.isSupported(Feature.ICON_BADGE_IMAGE_WINDOW)) {
+                // Badge Icon by https://www.flaticon.com/authors/sbts2018
+                Image badge = ImageIO.read(TaskbarApp.class.getResourceAsStream("/tick-mark.png"));
+                setWindowIconBadge(taskbar, frame, badge);
+            }
+
+            Thread.sleep(500);
+
+            frame.setVisible(false);
+            System.exit(0);
+        } else {
+            System.out.println("Taskbar not supported");
         }
-        if (taskbar.isSupported(Feature.ICON_BADGE_IMAGE_WINDOW)) {
-            // Badge Icon by https://www.flaticon.com/authors/sbts2018
-            Image badge = ImageIO.read(TaskbarApp.class.getResourceAsStream("/tick-mark.png"));
-            setWindowIconBadge(taskbar, frame, badge);
-        }
-
-        Thread.sleep(500);
-
-        frame.setVisible(false);
-        System.exit(0);
     }
 
 

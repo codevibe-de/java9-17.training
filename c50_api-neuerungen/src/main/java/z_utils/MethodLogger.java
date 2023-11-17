@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class MethodLogger {
+public class    MethodLogger {
 
     private static final String LINE = "+---------------------------------------";
     private static Object lock = new Object();
