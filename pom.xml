@@ -13,6 +13,8 @@
         <module>x02-jpms</module>
         <module>c40_syntax</module>
         <module>c50_api-neuerungen</module>
+        <module>c55_erweiterung-klassen</module>
+        <module>common</module>
     </modules>
 
     <properties>

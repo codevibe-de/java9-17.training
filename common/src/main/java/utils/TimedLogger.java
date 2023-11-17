@@ -1,4 +1,4 @@
-package z_utils;
+package utils;
 
 public class TimedLogger {
 

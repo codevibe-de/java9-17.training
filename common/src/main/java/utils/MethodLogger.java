@@ -1,4 +1,4 @@
-package z_utils;
+package utils;
 
 import java.util.Arrays;
 import java.util.HashMap;
