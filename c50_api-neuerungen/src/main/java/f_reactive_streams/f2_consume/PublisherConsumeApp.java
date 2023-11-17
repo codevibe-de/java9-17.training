@@ -1,4 +1,4 @@
-package f_reactive_streams.f6_consume;
+package f_reactive_streams.f2_consume;
 
 import z_utils.TimedLogger;
 
