@@ -10,10 +10,10 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>x02-jpms</module>
-        <module>c40_syntax</module>
-        <module>c50_api-neuerungen</module>
-        <module>c55_erweiterung-klassen</module>
+        <module>c20_modules</module>
+        <module>c30_syntax</module>
+        <module>c40_std-api-changes</module>
+        <module>c42_class-changes</module>
         <module>common</module>
     </modules>
 
