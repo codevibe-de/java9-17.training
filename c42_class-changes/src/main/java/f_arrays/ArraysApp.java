@@ -1,5 +1,6 @@
 package f_arrays;
 
+import org.junit.jupiter.api.Test;
 import utils.MethodLogger;
 
 import java.util.Arrays;
@@ -8,16 +9,8 @@ import java.util.Comparator;
 // todo
 public class ArraysApp {
 
-    public static void main(String args[]) throws Exception {
-        demoEqualsRange();
-        demoEquals();
-        demoComparePrimitive();
-        demoCompareComparable();
-        demoCompareComparator();
-        demoMismatch();
-    }
-
-    static void demoEqualsRange() throws Exception {
+    @Test
+    void demoEqualsRange() throws Exception {
         MethodLogger.logMethodCall();
         int[] ints1 = new int[]{10, 11, 12, 13, 14, 15};
         int[] ints2 = new int[]{11, 12, 13, 14, 15, 16};
@@ -32,7 +25,8 @@ public class ArraysApp {
          */
     }
 
-    static void demoEquals() throws Exception {
+    @Test
+    void demoEquals() throws Exception {
         MethodLogger.logMethodCall();
 
         class Foo {
@@ -54,7 +48,8 @@ public class ArraysApp {
         System.out.println(Arrays.equals(foos1, foos2, comparator)); // true
     }
 
-    static void demoComparePrimitive() throws Exception {
+    @Test
+    void demoComparePrimitive() throws Exception {
         MethodLogger.logMethodCall();
         int[] ints1 = new int[]{11, 12, 13, 15};
         int[] ints2 = new int[]{11, 12, 13, 15};
@@ -65,11 +60,12 @@ public class ArraysApp {
         System.out.println(Arrays.compare(ints3, ints4));
 
         int[] ints5 = new int[]{11, 12, 13, 155};
-        int[] ints6 = new int[]{11, 12, 13, 15};
+        int[] ints6 = new int[]{11, 12};
         System.out.println(Arrays.compare(ints5, ints6));
     }
 
-    static void demoCompareComparable() {
+    @Test
+    void demoCompareComparable() {
         MethodLogger.logMethodCall();
 
         class Foo implements Comparable<Foo> {
@@ -97,7 +93,8 @@ public class ArraysApp {
         System.out.println(Arrays.compare(foos5, foos6));
     }
 
-    static void demoCompareComparator() {
+    @Test
+    void demoCompareComparator() {
         MethodLogger.logMethodCall();
 
         class Foo {
@@ -125,7 +122,8 @@ public class ArraysApp {
         System.out.println(Arrays.compare(foos5, foos6, Comparator.comparing(foo -> foo.x)));
     }
 
-    static void demoMismatch() throws Exception {
+    @Test
+    void demoMismatch() throws Exception {
         MethodLogger.logMethodCall();
         int[] ints1 = new int[]{11, 12, 13, 14};
         int[] ints2 = new int[]{11, 12, 13, 14};

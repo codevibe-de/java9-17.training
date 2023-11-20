@@ -24,16 +24,15 @@ public class Application {
 
         var i = 42;
         i = 77;
-        // i = 42L;		// illegal
-        // i = "Hello"; // illegal
-        int var = 77;
+        // i = 42L;		// illegal, different type
+
+        var var = 77;
         System.out.println(var);
 
-//		illegal:
-//		class var {
-//		}
+        class Var {}    // okay
+//        class var {}    // illegal: 'var' is a restricted identifier and cannot be used for type declarations
 
-// 		var j; // illegal
+// 		var j; // illegal, no type info
     }
 
     static void demoVarAndFinal() {

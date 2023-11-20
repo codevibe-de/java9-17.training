@@ -1,17 +1,19 @@
 package k_switch_expressions;
 
+import static utils.MethodLogger.logMethodCall;
+
 public class Application {
     public static void main(String[] args) {
-        demo1();
-        demo2();
-        demo3();
+        oldMultipleCase();
+        oldMultiValueCase();
+        newArrowSyntax();
         demo4();
         demo5();
         demo6();
     }
 
-    static void demo1() {
-//        Log.logMethodCall();
+    static void oldMultipleCase() {
+        logMethodCall();
         int day = 2;
         switch (day) {
             case 1:
@@ -30,8 +32,8 @@ public class Application {
         }
     }
 
-    static void demo2() {
-//        Log.logMethodCall();
+    static void oldMultiValueCase() {
+        logMethodCall();
         int day = 2;
         switch (day) {
             case 1, 2, 3, 4, 5:
@@ -46,8 +48,8 @@ public class Application {
         }
     }
 
-    static void demo3() {
-//        Log.logMethodCall();
+    static void newArrowSyntax() {
+        logMethodCall();
         int day = 2;
         switch (day) {
             case 1, 2, 3, 4, 5 -> System.out.println("workday");
@@ -56,8 +58,21 @@ public class Application {
         }
     }
 
+    static void newArrowSyntaxAsExpression() {
+        logMethodCall();
+        int day = 2;
+        var dayDescriptor =
+                switch (day) {
+                    case 1, 2, 3, 4, 5 -> "workday";
+                    case 6 -> "saturday";
+                    case 7 -> "sunday";
+                    default -> "???";
+                };
+        System.out.println(dayDescriptor);
+    }
+
     static void demo4() {
-//        Log.logMethodCall();
+        logMethodCall();
         int result1 = calc1('+', 40, 2);
         System.out.println(result1);
         int result2 = calc2('+', 40, 2);
@@ -91,7 +106,7 @@ public class Application {
         };
     }
 
-    static enum Operator {
+    enum Operator {
         PLUS, MINUS, TIMES, DIV
         /* , MOD */
     }
@@ -108,7 +123,7 @@ public class Application {
     }
 
     static void demo5() {
-//        Log.logMethodCall();
+        logMethodCall();
         int x = 2;
         Number n = switch (x) {
             // Double n = (double)switch (x) {
@@ -121,7 +136,7 @@ public class Application {
     }
 
     static void demo6() {
-//        Log.logMethodCall();
+        logMethodCall();
         int x = 2;
         var v = switch (x) {
             case 1 -> 42;
@@ -134,7 +149,7 @@ public class Application {
     }
 
     static void demo7() {
-//        Log.logMethodCall();
+        logMethodCall();
         int x = 2;
         int n = switch (x) {
             case 1 -> {

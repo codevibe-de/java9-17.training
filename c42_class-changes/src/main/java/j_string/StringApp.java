@@ -1,21 +1,16 @@
 package j_string;
 
+import org.junit.jupiter.api.Test;
 import utils.MethodLogger;
 
+import java.util.function.Function;
 import java.util.stream.Stream;
 
 // todo
 public class StringApp {
 
-    public static void main(String[] args) {
-        demoRepeat();
-        demoStrip();
-        demoLines();
-        demoIsBlank();
-        demoCharactorToString();
-    }
-
-    static void demoRepeat() {
+    @Test
+    void demoRepeat() {
         MethodLogger.logMethodCall();
         String s1 = "Hello".repeat(5);
         System.out.println(s1);
@@ -23,7 +18,8 @@ public class StringApp {
         System.out.println(s2);
     }
 
-    static void demoStrip() {
+    @Test
+    void demoStrip() {
         MethodLogger.logMethodCall();
 
         // trim() removes all characters <= 0x20 but not modern Unicode chars like \u2000
@@ -35,14 +31,16 @@ public class StringApp {
         System.out.printf("'%s'\n", text.stripTrailing());
     }
 
-    static void demoLines() {
+    @Test
+    void demoLines() {
         MethodLogger.logMethodCall();
         String s = "red\ngreen\nblue";
         Stream<String> stream = s.lines();
         stream.forEach(System.out::println);
     }
 
-    static void demoIsBlank() {
+    @Test
+    void demoIsBlank() {
         MethodLogger.logMethodCall();
         System.out.println("".isBlank());
         System.out.println("   ".isBlank());
@@ -50,10 +48,18 @@ public class StringApp {
         System.out.println("   n t ".isBlank());
     }
 
-    static void demoCharactorToString() {
+    @Test
+    void demoCharactorToString() {
         MethodLogger.logMethodCall();
         String s = Character.toString(65);
         System.out.println(s);  // A
+    }
+
+    @Test
+    void transform() {
+        Function<String,String> snakeCaseFct =
+                (String s) -> String.join("-", s.toLowerCase().split("[\\s,.;]+"));
+        System.out.println("Hello, dear Planet Earth".transform(snakeCaseFct));
     }
 }
 

@@ -7,7 +7,7 @@ import java.io.*;
 // todo
 public class ResourceTryApp {
 
-    public static final String FILENAME = "src/jj/appl/Application.java";
+    public static final String FILENAME = "src/jj/appl/DefaultMethodsApp.java";
 
     public static void main(String[] args) throws Exception {
         demo1();

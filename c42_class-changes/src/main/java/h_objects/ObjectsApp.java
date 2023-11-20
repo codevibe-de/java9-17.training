@@ -17,9 +17,10 @@ public class ObjectsApp {
         } catch (NullPointerException e) {
             System.out.println("Expected" + e);
         }
-        Foo.beta(null);
-        Foo.gamma(null);
+        Foo.requireWithDefaultValue(null);
+        Foo.requireWithDefaultLambda(null);
     }
+
 
     static void demoCheckIndex() throws Exception {
         MethodLogger.logMethodCall();
