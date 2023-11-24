@@ -1,20 +1,19 @@
 package k_switch_expressions;
 
+import org.junit.jupiter.api.Test;
+
+import java.time.LocalDate;
+import java.util.Random;
+
 import static utils.MethodLogger.logMethodCall;
 
-public class Application {
-    public static void main(String[] args) {
-        oldMultipleCase();
-        oldMultiValueCase();
-        newArrowSyntax();
-        demo4();
-        demo5();
-        demo6();
-    }
+@SuppressWarnings("UnnecessaryLocalVariable")
+public class SwitchExpressionApp {
 
-    static void oldMultipleCase() {
+    @Test
+    void oldMultipleCase() {
         logMethodCall();
-        int day = 2;
+        int day = getDayOfWeek();
         switch (day) {
             case 1:
             case 2:
@@ -32,9 +31,10 @@ public class Application {
         }
     }
 
-    static void oldMultiValueCase() {
+    @Test
+    void newMultiValueCase() {
         logMethodCall();
-        int day = 2;
+        int day = getDayOfWeek();
         switch (day) {
             case 1, 2, 3, 4, 5:
                 System.out.println("workday");
@@ -48,9 +48,10 @@ public class Application {
         }
     }
 
-    static void newArrowSyntax() {
+    @Test
+    void newArrowSyntax() {
         logMethodCall();
-        int day = 2;
+        int day = getDayOfWeek();
         switch (day) {
             case 1, 2, 3, 4, 5 -> System.out.println("workday");
             case 6 -> System.out.println("saturday");
@@ -58,20 +59,26 @@ public class Application {
         }
     }
 
-    static void newArrowSyntaxAsExpression() {
+    @Test
+    void newArrowSyntaxAsExpression() {
         logMethodCall();
-        int day = 2;
-        var dayDescriptor =
-                switch (day) {
-                    case 1, 2, 3, 4, 5 -> "workday";
-                    case 6 -> "saturday";
-                    case 7 -> "sunday";
-                    default -> "???";
-                };
+        int day = getDayOfWeek();
+        var dayDescriptor = switch (day) {
+            case 1, 2, 3, 4, 5 -> "workday";
+            case 6 -> "saturday";
+            case 7 -> "sunday";
+            default -> "???";
+        };
         System.out.println(dayDescriptor);
     }
 
-    static void demo4() {
+
+    /**
+     * Demonstrates use of several calculation methods, which make use of switch
+     * statements/expressions.
+     */
+    @Test
+    void demo4() {
         logMethodCall();
         int result1 = calc1('+', 40, 2);
         System.out.println(result1);
@@ -79,6 +86,74 @@ public class Application {
         System.out.println(result2);
         int result3 = calc3(Operator.PLUS, 40, 2);
         System.out.println(result3);
+    }
+
+
+    /**
+     * Demonstrates that returning different types requires us to declare a common superclass for
+     * the result.
+     */
+    @Test
+    void demo5() {
+        logMethodCall();
+        int x = new Random().nextInt(0, 4);
+        Number n = switch (x) {
+            // Double n = (double)switch (x) {
+            case 1 -> 42;
+            case 2 -> 77L;
+            case 3 -> 3.14;
+            default -> 0;
+        };
+        System.out.println(n + " " + n.getClass().getName());
+    }
+
+
+    /**
+     * Demonstrates what type is inferred when using "var"
+     */
+    @Test
+    void demo6() {
+        logMethodCall();
+        int x = new Random().nextInt(0, 4);
+        var v = switch (x) {
+            case 1 -> 42;
+            case 2 -> 77L;
+            case 3 -> 3.14;
+            default -> 0;
+        };
+        Number n = v;
+        System.out.println(n + " " + n.getClass().getName());
+    }
+
+
+    @Test
+    void useYieldAsReturnInSwitch() {
+        logMethodCall();
+        int x = 2;
+        int n = switch (x) {
+            case 1 -> {
+                System.out.println("do this...");
+                yield 42;
+            }
+            case 2 -> {
+                System.out.println("do that...");
+                yield 77;
+            }
+            default -> {
+                System.out.println("default...");
+                yield 33;
+            }
+        };
+        System.out.println(n);
+    }
+
+    private int getDayOfWeek() {
+        return LocalDate.now().getDayOfWeek().getValue();
+    }
+
+    enum Operator {
+        PLUS, MINUS, TIMES, DIV
+        /* , MOD */
     }
 
     static int calc1(char op, int x, int y) {
@@ -106,13 +181,6 @@ public class Application {
         };
     }
 
-    enum Operator {
-        PLUS, MINUS, TIMES, DIV
-        /* , MOD */
-    }
-
-    ;
-
     static int calc3(Operator op, int x, int y) {
         return switch (op) {
             case PLUS -> x + y;
@@ -122,49 +190,4 @@ public class Application {
         };
     }
 
-    static void demo5() {
-        logMethodCall();
-        int x = 2;
-        Number n = switch (x) {
-            // Double n = (double)switch (x) {
-            case 1 -> 42;
-            case 2 -> 77L;
-            case 3 -> 3.14;
-            default -> 0;
-        };
-        System.out.println(n + " " + n.getClass().getName());
-    }
-
-    static void demo6() {
-        logMethodCall();
-        int x = 2;
-        var v = switch (x) {
-            case 1 -> 42;
-            case 2 -> 77L;
-            case 3 -> 3.14;
-            default -> 0;
-        };
-        Number n = v;
-        System.out.println(n + " " + n.getClass().getName());
-    }
-
-    static void demo7() {
-        logMethodCall();
-        int x = 2;
-        int n = switch (x) {
-            case 1 -> {
-                System.out.println("do this...");
-                yield 42;
-            }
-            case 2 -> {
-                System.out.println("do that...");
-                yield 77;
-            }
-            default -> {
-                System.out.println("default...");
-                yield 33;
-            }
-        };
-        System.out.println(n);
-    }
 }
