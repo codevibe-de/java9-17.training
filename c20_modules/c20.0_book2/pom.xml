@@ -6,14 +6,10 @@
 
     <parent>
         <groupId>de.codevibe</groupId>
-        <artifactId>c20.1_problems-classpath</artifactId>
+        <artifactId>c20_modules</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>c20.1-moduleB</artifactId>
-
-    <build>
-        <sourceDirectory>src</sourceDirectory>
-    </build>
+    <artifactId>c20.0_book2</artifactId>
 
 </project>

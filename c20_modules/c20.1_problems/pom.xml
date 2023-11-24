@@ -6,38 +6,24 @@
 
     <parent>
         <groupId>de.codevibe</groupId>
-        <artifactId>c20.1_problems-classpath</artifactId>
+        <artifactId>c20_modules</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>c20.1-appl</artifactId>
-
-    <build>
-        <sourceDirectory>src</sourceDirectory>
-        <plugins>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>3.1.0</version>
-                <configuration>
-                    <mainClass>jj.appl.Application</mainClass>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+    <artifactId>1_problems</artifactId>
+    <packaging>jar</packaging>
 
     <dependencies>
-        <!-- changing order of modA and modB results in different outputs -->
+        <!-- changing the order of these dependencies changes Book.toString() output -->
         <dependency>
             <groupId>de.codevibe</groupId>
-            <artifactId>c20.1-moduleA</artifactId>
+            <artifactId>c20.0_book</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>de.codevibe</groupId>
-            <artifactId>c20.1-moduleB</artifactId>
+            <artifactId>c20.0_book2</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
-
 </project>
