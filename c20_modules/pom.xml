@@ -14,7 +14,7 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>c20.1_problems-classpath</module>
+        <module>c20.1_problems</module>
         <module>c20.0_book</module>
         <module>c20.0_book2</module>
     </modules>
