@@ -1,16 +1,13 @@
 package h_objects;
 
+import org.junit.jupiter.api.Test;
 import utils.MethodLogger;
 
 // todo
 public class ObjectsApp {
 
-    public static void main(String[] args) throws Exception {
-        demoRequireNonNull();
-        demoCheckIndex();
-    }
-
-    static void demoRequireNonNull() throws Exception {
+    @Test
+    void demoRequireNonNull() throws Exception {
         MethodLogger.logMethodCall();
         try {
             Foo.alpha(null);
@@ -22,22 +19,23 @@ public class ObjectsApp {
     }
 
 
-    static void demoCheckIndex() throws Exception {
+    @Test
+    void demoCheckIndex() throws Exception {
         MethodLogger.logMethodCall();
         int[] array = new int[]{10, 11, 12, 13, 14};
         try {
-            Bar.alpha(array, 5);
+            ArrayAccessor.uncheckedAccess(array, 5);
         } catch (Exception e) {
             System.out.println("Expected: " + e);
         }
         try {
-            Bar.beta(array, 5);
+            ArrayAccessor.checkedAccess(array, 5);
         } catch (Exception e) {
             System.out.println("Expected: " + e);
         }
-        Bar.gamma(array, 0, 5);
+        ArrayAccessor.rangedCheckedAccess(array, 0, 5);
         try {
-            Bar.gamma(array, -1, 6);
+            ArrayAccessor.rangedCheckedAccess(array, -1, 6);
         } catch (Exception e) {
             System.out.println("Expected: " + e);
         }

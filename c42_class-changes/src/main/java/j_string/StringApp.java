@@ -31,6 +31,21 @@ public class StringApp {
         System.out.printf("'%s'\n", text.stripTrailing());
     }
 
+
+    @Test
+    void indent() {
+        System.out.print("New York\nRio\nTokio".indent(4));
+    }
+
+
+    @Test
+    void transform() {
+        Function<String,String> snakeCaseFct =
+                (String s) -> String.join("-", s.toLowerCase().split("[\\s,.;]+"));
+        System.out.println("Hello, dear Planet Earth".transform(snakeCaseFct));
+    }
+
+
     @Test
     void demoLines() {
         MethodLogger.logMethodCall();
@@ -38,6 +53,7 @@ public class StringApp {
         Stream<String> stream = s.lines();
         stream.forEach(System.out::println);
     }
+
 
     @Test
     void demoIsBlank() {
@@ -53,13 +69,6 @@ public class StringApp {
         MethodLogger.logMethodCall();
         String s = Character.toString(65);
         System.out.println(s);  // A
-    }
-
-    @Test
-    void transform() {
-        Function<String,String> snakeCaseFct =
-                (String s) -> String.join("-", s.toLowerCase().split("[\\s,.;]+"));
-        System.out.println("Hello, dear Planet Earth".transform(snakeCaseFct));
     }
 }
 

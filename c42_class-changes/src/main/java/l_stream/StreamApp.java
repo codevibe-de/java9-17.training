@@ -3,6 +3,7 @@ package l_stream;
 import org.junit.jupiter.api.Test;
 import utils.MethodLogger;
 
+import java.util.List;
 import java.util.stream.Stream;
 
 public class StreamApp {
@@ -36,7 +37,7 @@ public class StreamApp {
 
 
     @Test
-    void demoHtml() {
+    void demoDropWhileTakeWhileForHtml() {
         MethodLogger.logMethodCall();
         Stream.of("<html>",
                         "<head>",
@@ -67,7 +68,19 @@ public class StreamApp {
     @Test
     void demoIterate() {
         MethodLogger.logMethodCall();
-        Stream<Integer> s = Stream.iterate(5, i -> i < 10, i -> i + 2);
-        s.forEach(System.out::println);
+        Stream<Integer> s = Stream.iterate(
+                5,
+                i -> i < 10,
+                i -> i + 2);
+        s.forEach(System.out::print); // 579
+    }
+
+
+    @Test
+    void toList() {
+        List<Integer> integers = Stream.of(1, 2, 3, 4, 5, 6)
+                .filter(v -> v % 2 == 0)
+                .toList();
+        System.out.println(integers);
     }
 }
