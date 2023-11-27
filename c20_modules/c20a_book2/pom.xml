@@ -6,19 +6,10 @@
 
     <parent>
         <groupId>de.codevibe</groupId>
-        <artifactId>java9-17.training</artifactId>
+        <artifactId>c20_modules</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>c20_modules</artifactId>
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>c20a_book</module>
-        <module>c20a_book2</module>
-        <module>c20a_problems</module>
-        <module>c20b_mod-book</module>
-        <module>c20c_require</module>
-    </modules>
+    <artifactId>c20a_book2</artifactId>
 
 </project>

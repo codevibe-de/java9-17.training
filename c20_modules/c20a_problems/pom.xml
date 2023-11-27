@@ -10,19 +10,19 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>c20.1_problems</artifactId>
+    <artifactId>c20a_problems</artifactId>
     <packaging>jar</packaging>
 
     <dependencies>
         <!-- changing the order of these dependencies changes Book.toString() output -->
         <dependency>
             <groupId>de.codevibe</groupId>
-            <artifactId>c20.0_book</artifactId>
+            <artifactId>c20a_book</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>de.codevibe</groupId>
-            <artifactId>c20.0_book2</artifactId>
+            <artifactId>c20a_book2</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
