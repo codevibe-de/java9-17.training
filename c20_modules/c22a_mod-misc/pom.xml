@@ -3,24 +3,19 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <parent>
         <groupId>de.codevibe</groupId>
-        <artifactId>java9-17.training</artifactId>
+        <artifactId>c20_modules</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>c20_modules</artifactId>
-    <packaging>pom</packaging>
+    <groupId>org.example</groupId>
+    <artifactId>c22a_mod-misc</artifactId>
 
-    <modules>
-        <module>c20a_book</module>
-        <module>c20a_book2</module>
-        <module>c20a_problems</module>
-        <module>c22a_mod-book</module>
-        <module>c22a_mod-misc</module>
-        <module>c22b_require</module>
-        <module>c22c_reflection</module>
-    </modules>
+    <properties>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
 </project>

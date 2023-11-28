@@ -6,21 +6,11 @@
 
     <parent>
         <groupId>de.codevibe</groupId>
-        <artifactId>java9-17.training</artifactId>
+        <artifactId>c20_modules</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>c20_modules</artifactId>
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>c20a_book</module>
-        <module>c20a_book2</module>
-        <module>c20a_problems</module>
-        <module>c22a_mod-book</module>
-        <module>c22a_mod-misc</module>
-        <module>c22b_require</module>
-        <module>c22c_reflection</module>
-    </modules>
+    <groupId>org.example</groupId>
+    <artifactId>c22c_reflection</artifactId>
 
 </project>
