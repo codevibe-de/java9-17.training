@@ -10,7 +10,6 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>org.example</groupId>
-    <artifactId>c22a_mod-misc</artifactId>
+    <artifactId>c22f_foo</artifactId>
 
 </project>

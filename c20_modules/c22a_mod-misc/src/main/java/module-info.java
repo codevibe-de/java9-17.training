@@ -1,4 +1,4 @@
-module misc {
+module c22a.misc {
 
     exports alpha;
     opens alpha;

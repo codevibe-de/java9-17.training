@@ -13,4 +13,17 @@
     <groupId>org.example</groupId>
     <artifactId>c22c_reflection</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>de.codevibe</groupId>
+            <artifactId>common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.example</groupId>
+            <artifactId>c22a_mod-misc</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
 </project>
