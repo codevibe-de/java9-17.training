@@ -7,6 +7,9 @@ public class Book {
     private Integer year;
     private String author;
 
+    public Book() {
+    }
+
     public Book(String isbn, String title, Integer year, String author) {
         checkIsbn(isbn);
         this.isbn = isbn;

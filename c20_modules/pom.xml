@@ -21,6 +21,10 @@
         <module>c22a_mod-misc</module>
         <module>c22b_require</module>
         <module>c22c_reflection</module>
+        <module>c22d_mod-book-report</module>
+        <module>c22d_indirect</module>
+        <module>c22f_automatic</module>
+        <module>c22f_foo</module>
     </modules>
 
 </project>
