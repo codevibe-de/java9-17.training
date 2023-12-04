@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<!-- See https://logging.apache.org/log4j/2.x/manual/layouts.html#PatternLayout -->
+
 <Configuration status="warn">
 
+    <Properties>
+        <Property name="disableAnsi">false</Property>
+    </Properties>
+
     <Appenders>
+        <withJansi>true</withJansi>
         <Console name="STDOUT">
             <PatternLayout pattern="%highlight{%d{ABSOLUTE} %-5p [%c{1}] (%-20t) %m%n}"/>
         </Console>
