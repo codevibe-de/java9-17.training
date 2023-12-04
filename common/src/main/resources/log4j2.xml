@@ -2,17 +2,16 @@
 
 <Configuration status="warn">
 
-  <Appenders>
-    <Console name="STDOUT">
-      <PatternLayout pattern="%d{ABSOLUTE} %-5p [%c] (%t) %m%n"/>
-    </Console>
-  </Appenders>
+    <Appenders>
+        <Console name="STDOUT">
+            <PatternLayout pattern="%highlight{%d{ABSOLUTE} %-5p [%c{1}] (%-20t) %m%n}"/>
+        </Console>
+    </Appenders>
 
-  <Loggers>
-    <Root level="warn">
-      <AppenderRef ref="STDOUT"/>
-    </Root>
-    <Logger name="de.gedoplan" level="debug"/>
-  </Loggers>
+    <Loggers>
+        <Root level="debug">
+            <AppenderRef ref="STDOUT"/>
+        </Root>
+    </Loggers>
 
 </Configuration>
