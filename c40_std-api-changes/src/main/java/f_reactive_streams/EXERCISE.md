@@ -30,3 +30,13 @@ if necessary, so that it so that it finally ends with a runtime of one minute.
 
 This means the subscriber requests a number of certain items each time, which is calculated
 based on the remaining time and the number of items processed so far.
+
+## 4) Book Search
+
+Have a look at the Book Search GUI in package `f_reactive_streams.xrc4_booksearch`, which can
+be launched via its main class `BookDatabaseApp`.
+
+However, the integration of the GUI with the `BookDatabase` isn't yet implemented. Have a look
+at `BookDatabase.find()`.
+
+Your task is to code a publisher that publishes items to the `BookSubscriber`.

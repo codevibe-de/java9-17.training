@@ -1,4 +1,4 @@
-package f_reactive_streams.x_database;
+package f_reactive_streams.xrc4_booksearch;
 
 public record Book(
         String isbn,

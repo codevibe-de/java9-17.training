@@ -1,4 +1,4 @@
-package f_reactive_streams.x_database;
+package f_reactive_streams.xrc4_booksearch;
 
 import javax.swing.*;
 import java.util.concurrent.Flow;
