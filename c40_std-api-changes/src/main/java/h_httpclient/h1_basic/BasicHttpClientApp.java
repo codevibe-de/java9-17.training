@@ -17,6 +17,7 @@ public class BasicHttpClientApp {
         // there is no built-in way to add path/query parameters
         final HttpRequest request = HttpRequest.newBuilder()
                 .GET()
+                .setHeader("Accept", "application/json")
                 .uri(URI.create("https://jsonplaceholder.typicode.com/todos/1"))
                 .build();
 
@@ -37,6 +38,7 @@ public class BasicHttpClientApp {
         // there is no built-in way to add path/query parameters
         final HttpRequest request = HttpRequest.newBuilder()
                 .GET()
+                .setHeader("Accept", "application/json")
                 .uri(URI.create("https://postman-echo.com/basic-auth"))
                 .build();
 

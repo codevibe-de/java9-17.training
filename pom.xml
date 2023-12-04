@@ -16,6 +16,8 @@
         <module>c42_class-changes</module>
         <module>common</module>
         <module>demo</module>
+        <module>c50_patternmatching</module>
+        <module>e30_syntax</module>
     </modules>
 
     <properties>

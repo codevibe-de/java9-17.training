@@ -1,22 +1,16 @@
 package o_resourcetry;
 
+import org.junit.jupiter.api.Test;
 import utils.MethodLogger;
 
 import java.io.*;
 
-// todo
 public class ResourceTryApp {
 
-    public static final String FILENAME = "src/jj/appl/DefaultMethodsApp.java";
+    public static final String FILENAME = "src/main/java/o_resourcetry/ResourceTryApp.java";
 
-    public static void main(String[] args) throws Exception {
-        demo1();
-        demo2();
-        demoCopy1();
-        demoCopy2();
-    }
-
-    static void demo1() {
+    @Test
+    void oldTryWithResource() {
         MethodLogger.logMethodCall();
         try (FileInputStream in = new FileInputStream(FILENAME)) {
             final int first = in.read();
@@ -26,7 +20,8 @@ public class ResourceTryApp {
         }
     }
 
-    static void demo2() throws Exception {
+    @Test
+    void newTryWithResource() throws Exception {
         MethodLogger.logMethodCall();
         FileInputStream in = new FileInputStream(FILENAME);
         try (in) {
@@ -37,7 +32,8 @@ public class ResourceTryApp {
         }
     }
 
-    static void demoCopy1() throws Exception {
+    @Test
+    void oldTryWithResourceUsingHelperMethod() throws Exception {
         MethodLogger.logMethodCall();
         OutputStream out = new ByteArrayOutputStream();
         copy1(new FileInputStream(FILENAME), out);
@@ -45,6 +41,7 @@ public class ResourceTryApp {
     }
 
     private static void copy1(InputStream in, OutputStream out) {
+        // before Java 9 we need to reassign AutoClosables
         try (InputStream i = in; OutputStream o = out) {
             int b;
             while ((b = i.read()) != -1) {
@@ -55,7 +52,8 @@ public class ResourceTryApp {
         }
     }
 
-    static void demoCopy2() throws Exception {
+    @Test
+    void newTryWithResourceUsingHelperMethod() throws Exception {
         MethodLogger.logMethodCall();
         OutputStream out = new ByteArrayOutputStream();
         copy2(new FileInputStream(FILENAME), out);

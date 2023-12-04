@@ -59,7 +59,6 @@ class Range implements Iterable<Integer> {
 
 }
 
-@SuppressWarnings("Convert2Lambda")
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class DiamondOperatorApp {
 

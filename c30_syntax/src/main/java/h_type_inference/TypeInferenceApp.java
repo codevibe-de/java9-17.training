@@ -38,7 +38,7 @@ public class TypeInferenceApp {
         Map<String, ? extends Number> map = createMap();
         LocalDate now = LocalDate.now();
 
-        // show and sweet :)
+        // short and sweet :)
         var strToNumberMap = createMap();
         var todaysDate = LocalDate.now();
     }
