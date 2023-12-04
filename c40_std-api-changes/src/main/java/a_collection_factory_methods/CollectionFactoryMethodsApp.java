@@ -1,7 +1,9 @@
 package a_collection_factory_methods;
 
+import org.junit.jupiter.api.Test;
 import utils.MethodLogger;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -11,20 +13,15 @@ import static java.util.Map.entry;
 @SuppressWarnings({"ThrowablePrintedToSystemOut", "DataFlowIssue"})
 public class CollectionFactoryMethodsApp {
 
-    public static void main(String[] args) {
-        demoListOf();
-        demoSetOf();
-        demoMapOf();
-        demoMapOfEntries();
-    }
-
-    static void demoListOf() {
+    @Test
+    void demoListOf() {
         MethodLogger.logMethodCall();
 
-        final List<Integer> list = List.of(1, 2, 3);
+        List<Integer> list = List.of(1, 2, 3);
         list.forEach(System.out::println);
         System.out.println(list.getClass());
 
+        list = new ArrayList<>(list);
         try {
             list.add(4);
         } catch (final Exception e) {
@@ -38,7 +35,8 @@ public class CollectionFactoryMethodsApp {
     }
 
 
-    static void demoSetOf() {
+    @Test
+    void demoSetOf() {
         MethodLogger.logMethodCall();
 
         final Set<String> set = Set.of("red", "green", "blue");
@@ -53,14 +51,11 @@ public class CollectionFactoryMethodsApp {
     }
 
 
-    static void demoMapOf() {
+    @Test
+    void demoMapOf() {
         MethodLogger.logMethodCall();
 
-        final Map<Integer, String> map = Map.of(
-                42, "red",
-                43, "green",
-                44, "blue"
-        );
+        final Map<Integer, String> map = Map.of(42, "red", 43, "green", 44, "blue");
         map.forEach((k, v) -> System.out.println(k + " => " + v));
         System.out.println(map.getClass());
 
@@ -72,7 +67,8 @@ public class CollectionFactoryMethodsApp {
     }
 
 
-    static void demoMapOfEntries() {
+    @Test
+    void demoMapOfEntries() {
         MethodLogger.logMethodCall();
 
         final Map<Integer, String> map = Map.ofEntries(
