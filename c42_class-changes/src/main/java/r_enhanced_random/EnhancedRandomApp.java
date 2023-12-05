@@ -1,6 +1,31 @@
 package r_enhanced_random;
 
-public class EnhancedRandomApp
-{
-    // todo
+import org.junit.jupiter.api.Test;
+
+import java.util.concurrent.ThreadLocalRandom;
+import java.util.random.RandomGenerator;
+
+public class EnhancedRandomApp {
+
+    @Test
+    void intsUnlimited() {
+        RandomGenerator generator = RandomGenerator.getDefault();
+        generator.ints()
+                .takeWhile(v -> v > 0)
+                .forEach(System.out::println);
+    }
+
+    @Test
+    void intsLimitedAndRanged() {
+        RandomGenerator generator = RandomGenerator.getDefault();
+        generator.ints(10, 0, 1000)
+                .forEach(System.out::println);
+    }
+
+    @Test
+    void next() {
+        RandomGenerator generator = ThreadLocalRandom.current();
+        var serverPort = generator.nextInt(8000, 8080);
+        System.out.println(serverPort);
+    }
 }

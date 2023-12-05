@@ -11,22 +11,24 @@ public class FileReadWriteApp {
 
     @Test
     void readString() throws IOException {
-        var path = Path.of("pom.xml");
-        var content = Files.readString(path);
+        Path path = Path.of("pom.xml");
+        String content = Files.readString(path);
         System.out.println(content.length());
     }
 
 
     @Test
     void readSplitAndPrint() throws IOException {
-        var path = Path.of("pom.xml");
-        Files.readString(path).lines().forEach(System.out::println);
+        Path path = Path.of("pom.xml");
+        Files.readString(path)
+                .lines()
+                .forEach(System.out::println);
     }
 
 
     @Test
     void writeString() throws IOException {
-        var path = Path.of("output.tmp");
+        Path path = Path.of("output.tmp");
         Files.writeString(path, "Hello");
         Files.writeString(path, "\nWorld", StandardOpenOption.APPEND);
     }

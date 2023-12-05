@@ -6,7 +6,6 @@ import utils.MethodLogger;
 import java.util.Arrays;
 import java.util.Comparator;
 
-// todo
 public class ArraysApp {
 
     @Test
@@ -25,13 +24,13 @@ public class ArraysApp {
          */
     }
 
+
     @Test
     void demoEquals() throws Exception {
         MethodLogger.logMethodCall();
 
         class Foo {
             public final int x;
-
             public Foo(int x) {
                 this.x = x;
             }
@@ -48,21 +47,23 @@ public class ArraysApp {
         System.out.println(Arrays.equals(foos1, foos2, comparator)); // true
     }
 
+
     @Test
     void demoComparePrimitive() throws Exception {
         MethodLogger.logMethodCall();
         int[] ints1 = new int[]{11, 12, 13, 15};
         int[] ints2 = new int[]{11, 12, 13, 15};
-        System.out.println(Arrays.compare(ints1, ints2));
+        System.out.println(Arrays.compare(ints1, ints2)); // 0
 
         int[] ints3 = new int[]{11, 12, 13, 15};
         int[] ints4 = new int[]{11, 12, 13, 155};
-        System.out.println(Arrays.compare(ints3, ints4));
+        System.out.println(Arrays.compare(ints3, ints4)); // -1
 
         int[] ints5 = new int[]{11, 12, 13, 155};
         int[] ints6 = new int[]{11, 12};
-        System.out.println(Arrays.compare(ints5, ints6));
+        System.out.println(Arrays.compare(ints5, ints6)); // 2
     }
+
 
     @Test
     void demoCompareComparable() {
@@ -93,17 +94,19 @@ public class ArraysApp {
         System.out.println(Arrays.compare(foos5, foos6));
     }
 
+
     @Test
     void demoCompareComparator() {
         MethodLogger.logMethodCall();
 
         class Foo {
             public final int x;
-
             public Foo(int x) {
                 this.x = x;
             }
         }
+
+        // comparator as anonymous class
         Foo[] foos1 = new Foo[]{new Foo(10), new Foo(11)};
         Foo[] foos2 = new Foo[]{new Foo(10), new Foo(11)};
         System.out.println(Arrays.compare(foos1, foos2, new Comparator<Foo>() {
@@ -113,6 +116,7 @@ public class ArraysApp {
             }
         }));
 
+        // comparator as lambdas
         Foo[] foos3 = new Foo[]{new Foo(10), new Foo(11)};
         Foo[] foos4 = new Foo[]{new Foo(10), new Foo(111)};
         System.out.println(Arrays.compare(foos3, foos4, (foo1, foo2) -> Integer.compare(foo1.x, foo2.x)));
@@ -121,6 +125,7 @@ public class ArraysApp {
         Foo[] foos6 = new Foo[]{new Foo(10), new Foo(11)};
         System.out.println(Arrays.compare(foos5, foos6, Comparator.comparing(foo -> foo.x)));
     }
+
 
     @Test
     void demoMismatch() throws Exception {

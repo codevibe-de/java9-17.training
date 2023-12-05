@@ -15,7 +15,8 @@ class ArrayAccessor {
 
     static void rangedCheckedAccess(int[] array, int fromIndex, int toIndex) {
         Objects.checkFromToIndex(fromIndex, toIndex, array.length);
-        for (int i = fromIndex; i < toIndex; i++)
+        for (int i = fromIndex; i < toIndex; i++) {
             System.out.println(array[i]);
+        }
     }
 }
