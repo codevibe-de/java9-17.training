@@ -4,11 +4,11 @@
 
 Create a new Maven or Gradle based project in a separate folder.
 
-Your project should contain two Maven/Gradle modules - do not use Java 9 modularization yet. These 
-modules can be named e.g. 
+Your project should contain two Maven modules/Gradle subprojects. DO NOT use Java 9 modularization
+yet. These modules can be named e.g.
 
-* mod-appl 
-* mod-libA 
+* mod-appl
+* mod-libA
 
 The parent project does not contain any sources.
 
@@ -19,3 +19,6 @@ sure the supporting module dependencies are configured in your build script.
 
 ## 2) Modularize the application
 
+Make the application module executable by specifying the main class in the build script.
+
+Execute your application using Maven or Gradle.
