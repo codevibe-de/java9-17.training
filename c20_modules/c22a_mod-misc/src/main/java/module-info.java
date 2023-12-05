@@ -1,10 +1,10 @@
-module c22a.misc {
+module mod.misc {
 
-    exports alpha;
-    opens alpha;
+    exports de.alpha;
+    opens de.alpha;
 
-    exports beta;
+    exports de.beta;
 
-    opens gamma;
+    opens de.gamma;
 
 }

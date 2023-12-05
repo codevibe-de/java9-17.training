@@ -1,5 +1,5 @@
-module c20c.require {
+module mod.appl {
     requires common;
-    requires mod_book;
+    requires mod.book;
     requires org.assertj.core;
 }

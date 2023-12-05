@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
@@ -18,10 +18,11 @@
         <module>c20a_book2</module>
         <module>c20a_problems</module>
         <module>c22a_mod-book</module>
+        <module>c22a_mod-book-report</module>
+        <module>c22a_mod_book_xtras</module>
         <module>c22a_mod-misc</module>
         <module>c22b_require</module>
         <module>c22c_reflection</module>
-        <module>c22d_mod-book-report</module>
         <module>c22d_indirect</module>
         <module>c22f_automatic</module>
         <module>c22f_foo</module>

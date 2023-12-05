@@ -12,7 +12,7 @@
     <artifactId>c22b_require</artifactId>
 
     <properties>
-        <exec.mainClass>require.RequiresApp</exec.mainClass>
+        <exec.mainClass>de.appl.RequiresApp</exec.mainClass>
     </properties>
 
     <dependencies>
@@ -42,7 +42,7 @@
                         <argument>-p</argument>
                         <modulepath/>
                         <argument>-m</argument>
-                        <argument>c20c.require/require.RequiresApp</argument>
+                        <argument>c20c.require/de.appl.RequiresApp</argument>
                     </arguments>
                 </configuration>
             </plugin>

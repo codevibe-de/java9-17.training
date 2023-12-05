@@ -1,3 +1,3 @@
-module c22d.indirect {
-    requires c22d.book.report;
+module mod.appl {
+    requires mod.book.report;
 }

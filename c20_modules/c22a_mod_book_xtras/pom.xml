@@ -3,25 +3,21 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <parent>
         <groupId>de.codevibe</groupId>
-        <artifactId>c20_modules</artifactId>
+        <artifactId>java9-17.training</artifactId>
         <version>1.0-SNAPSHOT</version>
+        <relativePath>../../pom.xml</relativePath>
     </parent>
 
-    <artifactId>c22d_indirect</artifactId>
+    <artifactId>c22a_mod_book_xtras</artifactId>
 
     <dependencies>
         <dependency>
-            <groupId>de.codevibe</groupId>
-            <artifactId>c22a_mod-book</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>de.codevibe</groupId>
-            <artifactId>c22a_mod-book-report</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.14.0</version>
         </dependency>
     </dependencies>
-
 </project>

@@ -1,4 +1,4 @@
-module c22c.reflection {
+module mod.appl {
     requires common;
-    requires c22a.misc;
+    requires mod.misc;
 }

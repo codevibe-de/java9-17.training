@@ -1,4 +1,5 @@
-module mod_book {
+module mod.book {
     requires java.base; // default
-    exports book.api;
+    exports de.book.api;
+    exports de.book.service;
 }
