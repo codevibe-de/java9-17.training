@@ -15,7 +15,7 @@
         <module>c40_std-api-changes</module>
         <module>c42_class-changes</module>
         <module>common</module>
-        <module>demo</module>
+        <module>misc</module>
         <module>c50_patternmatching</module>
         <module>e30_syntax</module>
     </modules>
