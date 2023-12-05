@@ -28,8 +28,9 @@ public class BasicHttpClientApp {
         final HttpResponse<String> response =
                 client.send(request, HttpResponse.BodyHandlers.ofString());
 
-        System.out.println("status = " + response.statusCode());
-        System.out.println("body   = " + response.body());
+        System.out.println("status  = " + response.statusCode());
+        System.out.println("body    = " + response.body());
+        System.out.println("headers = " + response.headers());
     }
 
 

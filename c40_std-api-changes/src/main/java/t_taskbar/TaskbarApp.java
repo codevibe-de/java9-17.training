@@ -10,14 +10,13 @@ import java.util.Arrays;
 public class TaskbarApp {
 
     public static void main(String[] args) throws InterruptedException, IOException {
+        Frame frame = new JFrame("Toolbar API Demo");
+        frame.setVisible(true);
+
         if (Taskbar.isTaskbarSupported()) {
             var taskbar = Taskbar.getTaskbar();
 
             listSupportedFeatures(taskbar);
-
-            Frame frame = new JFrame("Toolbar API Demo");
-            frame.setVisible(true);
-
 
             if (taskbar.isSupported(Feature.PROGRESS_VALUE_WINDOW)) {
                 setWindowProgressValue(taskbar, frame);
