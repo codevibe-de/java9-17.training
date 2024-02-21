@@ -21,4 +21,7 @@ sure the supporting module dependencies are configured in your build script.
 
 Make the application module executable by specifying the main class in the build script.
 
-Execute your application using Maven or Gradle.
+Execute your application using Maven or Gradle and enable extended logging to see the classpath
+being used to execute your main class:
+
+* Gradle: `gradle mod-appl:run --info`
