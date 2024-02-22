@@ -18,7 +18,8 @@ App starting...
 
 ## 01) Turn the application into a JPMS module
 
-Add a `module-info.java` file to the root of your sources directory to convert your application into a
+Add a `module-info.java` file to the root of your sources directory to convert your application into
+a
 JPMS **modularized** application.
 
 Use the module name `x22_jpms.appl`.
@@ -31,6 +32,10 @@ mainModule = "x22_jpms.appl"
 ````
 
 Does it still compile or can you execute it?
+
+Further reading:
+
+* https://docs.gradle.org/current/userguide/application_plugin.html#sec:application_modular
 
 ## 02) Fix it
 
@@ -45,6 +50,8 @@ gradlew --info appl:run
 ````
 
 Now examine how Gradle is calling the `java.exe` executable in terms of classpath construction.
+
+What library-specific arguments are passed to the `java` command?
 
 Further reading:
 
