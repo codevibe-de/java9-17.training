@@ -1,0 +1,15 @@
+plugins {
+    id 'java'
+}
+
+subprojects {
+    apply plugin: 'java'
+
+    group = 'de.codevibe'
+    version = '1.0-SNAPSHOT'
+
+    java {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+}
