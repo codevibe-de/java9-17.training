@@ -7,15 +7,8 @@ application {
     applicationDefaultJvmArgs = ["-Djansi.passthrough=true"]
 }
 
-repositories {
-    mavenCentral()
-}
 
 dependencies {
     implementation 'org.apache.commons:commons-lang3:3.14.0'
     implementation 'org.fusesource.jansi:jansi:2.4.1'
-}
-
-test {
-    useJUnitPlatform()
 }
