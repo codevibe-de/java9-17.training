@@ -2,14 +2,14 @@
 
 ## Easy Start
 
-Take a look at the existing source code.
+Take a look at the existing source code in submodule `appl`.
 
 Start the application
 
 * in your IDE 
-* and also using Gradle `gradlew run`
+* and also on the command line using `gradlew -q appl:run`
 
-You should see some Gradle stuff and finally some colorful output like:
+You should see some colorful output like:
 
 ````
 App starting...
@@ -19,7 +19,7 @@ App starting...
 ## 01) Turn the application into a JPMS module
 
 Add a `module-info.java` file to the root of your sources directory to convert your application into a 
-Java 9 **modularized** application.
+JPMS **modularized** application.
 
 Does it still compile or can you execute it?
 
