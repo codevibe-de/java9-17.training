@@ -1,0 +1,30 @@
+plugins {
+    id 'application'
+}
+
+group = 'de.codevibe'
+version = '1.0-SNAPSHOT'
+
+application {
+    mainClass.set("appl.ModulesExerciseApp")
+    applicationDefaultJvmArgs = ["-Djansi.passthrough=true"]
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.apache.commons:commons-lang3:3.14.0'
+    implementation 'org.fusesource.jansi:jansi:2.4.1'
+}
+
+test {
+    useJUnitPlatform()
+}
