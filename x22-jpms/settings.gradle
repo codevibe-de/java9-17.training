@@ -1,0 +1,3 @@
+rootProject.name = 'x22-jpms'
+include 'appl'
+
