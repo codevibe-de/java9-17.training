@@ -6,7 +6,14 @@ group = 'de.codevibe'
 version = '1.0-SNAPSHOT'
 
 application {
-    mainClassName = "appl.ModulesExrcApp"
+    mainClass.set("appl.ModulesExerciseApp")
+    applicationDefaultJvmArgs = ["-Djansi.passthrough=true"]
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
 }
 
 repositories {
