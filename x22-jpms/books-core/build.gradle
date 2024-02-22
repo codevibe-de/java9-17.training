@@ -1,0 +1,6 @@
+tasks.named('jar') {
+    manifest {
+        attributes('Automatic-Module-Name': 'x22_jpms.books_core')
+    }
+}
+
