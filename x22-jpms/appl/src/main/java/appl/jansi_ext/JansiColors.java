@@ -32,11 +32,11 @@ public class JansiColors {
             printStream.println(createAnsiOutput(txt));
         }
 
-        public void printf(String pattern, Object ...args) {
+        public void printf(String pattern, Object... args) {
             printStream.print(createAnsiOutput(pattern.formatted(args)));
         }
 
-        public void printfln(String pattern, Object ...args) {
+        public void printfln(String pattern, Object... args) {
             printStream.println(createAnsiOutput(pattern.formatted(args)));
         }
 

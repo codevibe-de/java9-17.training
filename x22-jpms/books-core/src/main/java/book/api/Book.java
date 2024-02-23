@@ -2,8 +2,6 @@ package book.api;
 
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.Objects;
-
 public record Book(
         String isbn,
         String title,
