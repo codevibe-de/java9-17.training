@@ -1,4 +1,9 @@
-# Exercise for chapter "Java Platform Module System (JPMS)"
+# Exercises for chapter "Java Platform Module System (JPMS)"
+
+**NOTE:**:
+
+* all command-line exercise expect a terminal with `./x22-jpms` as the working directory.
+* each exercise task has a solution in branch `x22-solution/taskXX`
 
 ## Easy Start
 
@@ -58,17 +63,18 @@ What library-specific arguments are passed to the `java` command?
 
 ## 04) Using books-core
 
-Uncomment the code in `createAndPrintBook()` and add the missing import.
+Add the following dependency to file `x22-jpms/appl/build.gradle`:
 
-However, this won't work although the "books-core" project is declared as a dependency in Gradle.
+````groovy
+    implementation project(":books-core")
+````
+
+Then edit `ModulesExerciseApp.java` and uncomment the two lines directly beneath `# Work with books-core API`.
+
+The compiler will complain with message "Cannot resolve symbol 'Book'", **although** the "books-core" project is
+declared as a dependency in Gradle.
 
 What is the problem?
-
-Further reading:
-
-* https://openjdk.org/projects/jigsaw/spec/sotms/#the-unnamed-module
-* https://docs.gradle.org/current/userguide/java_library_plugin.html#using_libraries_that_are_not_modules
-* https://docs.gradle.org/current/samples/sample_java_modules_with_transform.html
 
 ## 05) Modularize books-core
 
@@ -77,14 +83,49 @@ Fix the problem above by modularizing the "books-core" project as well.
 Use the module name "x22_jpms.books_core" for this.
 
 For this exercise you need to create a `module-info.java` file in the "books-core" library and also
-export the `book.api` package. But also something else, which you have done before ... :)
+export the `book.api` package.
 
-## 06) Classpath / Modulepath
+But also two other things, which you have done before ... :)
 
-## 07) Deep Reflection
+PS Don't forget to finally add the missing import to class `ModulesExerciseApp`.
 
-## 08) Fix it
+## 06) Deep Reflection
 
-## 09) Integrate "books-report"
+Now we are going to use "deep reflection" with our "books-core" library.
 
-## 10) Use transitive modules imports
+For that you will need to uncomment the two lines beneath `# Use reflection with books-core classes`.
+
+Add the missing import for `Publisher`.
+
+Now compile your application with `gradlew clean compileJava`, which should work. The code should also
+compile within your IDE.
+
+Finally, run your application again using `gradlew -q appl:run`. Does it work?
+
+## 07) Fix it
+
+Fix it by adding the appropriate "opens" statement to `x22-jpms/books-core/src/main/java/module-info.java`.
+
+## 08) Integrate "books-report"
+
+Uncomment the code lines beneath `# Work with books-report API`.
+
+Adding the missing import for `Objects` is trivial -- but the other classes are not visible (yet).
+
+Fix that using the "books-report" subproject :)
+
+NOTE: You might need to recompile the "books-report" project as an intermediate step using `gradlew books-report:build`
+and then refresh your IDE.
+
+## 09) Use transitive modules imports
+
+Since "books-report" is importing the module "books-core" we can make use of a transitive module import
+by adding the keyword "transitive" there.
+
+````
+appl --> books-report --> books-core
+  |                        |
+  \--------(transitive)----/
+````
+
+We can then remove the module import to "books-core" from "appl".
