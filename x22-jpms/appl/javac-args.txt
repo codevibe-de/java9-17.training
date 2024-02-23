@@ -1,0 +1,14 @@
+#
+# NOTE: Paths to libraries are machine dependent and will very likely need adjustment. You can use e.g.
+#   Intellij to copy the full path from its "External Libraries" in the "Project" tool windows.
+#
+# NOTE: Library path must be given with a FORWARD slash
+#
+# NOTE: You must remove the output folder if you make changes like deleting files since javac will check it for existing
+#   stuff (Windows: "del /s /q mybuild")
+#
+
+-d ./mybuild
+-sourcepath ./src/main/java
+-p "C:/Users/Thomas Auinger/.gradle/caches/modules-2/files-2.1/org.fusesource.jansi/jansi/2.4.1/d5774f204d990c9f5da2809b88f928515577beb4/jansi-2.4.1.jar";"C:/Users/Thomas Auinger/.m2/repository/org/apache/commons/commons-lang3/3.14.0/commons-lang3-3.14.0.jar"
+./src/main/java/appl/ModulesExerciseApp.java

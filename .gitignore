@@ -3,5 +3,6 @@ build/
 bin/
 .idea/
 .gradle/
+/x22-jpms/appl/mybuild/
 
 **/*.iml
