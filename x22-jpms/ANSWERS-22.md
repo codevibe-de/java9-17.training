@@ -25,3 +25,11 @@ C:\...\openjdk17\current\bin\java.exe
 ````
 
 We can see that Gradle is putting all libraries into the **module-path** now.
+
+## 04) Using books-core
+
+### What is the problem?
+
+The class `Book` is not imported and hence not visible.
+
+BUT it cannot be imported, since the module, in which this class is residing, is not visible to our application.

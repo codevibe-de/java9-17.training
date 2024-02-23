@@ -16,8 +16,8 @@ public class ModulesExerciseApp {
         printSeparator();
 
         // # Work with books-core API
-//        System.out.println(new Book("0-19-501919-9", "A Pattern Language", 1977, "Christopher Alexander"));
-//        printSeparator();
+        System.out.println(new Book("0-19-501919-9", "A Pattern Language", 1977, "Christopher Alexander"));
+        printSeparator();
 
         // # Use reflection with books-core classes
 //        app.investigate(new Book("123-456", "Test", 2000, "The Duke"));
