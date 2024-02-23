@@ -3,8 +3,8 @@ plugins {
 }
 
 application {
-    mainClass.set("appl.ModulesExerciseApp")
-    applicationDefaultJvmArgs = ["-Djansi.passthrough=true"]
+    mainClass = "appl.ModulesExerciseApp"
+    applicationDefaultJvmArgs = ["-Djansi.passthrough=true", "-Dfile.encoding=UTF-8"]
 }
 
 
