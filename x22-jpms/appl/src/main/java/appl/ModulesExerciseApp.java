@@ -1,6 +1,7 @@
 package appl;
 
 import appl.reflection.Mapper;
+import book.api.Book;
 import org.apache.commons.lang3.StringUtils;
 import org.fusesource.jansi.AnsiConsole;
 
