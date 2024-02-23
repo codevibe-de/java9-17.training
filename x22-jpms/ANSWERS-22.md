@@ -10,9 +10,10 @@ The application module does not "require" them.
 
 ## 03) Classpath Investigation
 
-### a) What library-specific arguments are passed to the `java` command?
+### What library-specific arguments are passed to the `java` command?
 
 The extracted and pretty-printed java command looks like this:
+
 ````shell
 C:\...\openjdk17\current\bin\java.exe 
 -Djansi.passthrough=true 
