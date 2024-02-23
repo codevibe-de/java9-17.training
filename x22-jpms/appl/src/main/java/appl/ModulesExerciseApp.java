@@ -12,7 +12,7 @@ public class ModulesExerciseApp {
 
     // --- main logic ---
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // # Setup
         var app = new ModulesExerciseApp();
         printSeparator();
