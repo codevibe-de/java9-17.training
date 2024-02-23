@@ -2,6 +2,7 @@ package appl;
 
 import appl.reflection.Mapper;
 import book.api.Book;
+import book.api.Publisher;
 import org.apache.commons.lang3.StringUtils;
 import org.fusesource.jansi.AnsiConsole;
 
@@ -21,8 +22,8 @@ public class ModulesExerciseApp {
         printSeparator();
 
         // # Use reflection with books-core classes
-//        app.investigate(new Book("123-456", "Test", 2000, "The Duke"));
-//        app.investigate(new Publisher("Sun Microsystems"));
+        app.investigate(new Book("123-456", "Test", 2000, "The Duke"));
+        app.investigate(new Publisher("Sun Microsystems"));
 
         // # Work with books-report API
 //        printSeparator();

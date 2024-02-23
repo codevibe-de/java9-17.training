@@ -34,3 +34,12 @@ We can see that Gradle is putting all libraries into the **module-path** now.
 The class `Book` is not imported and hence not visible.
 
 BUT it cannot be imported, since the module, in which this class is residing, is not visible to our application.
+
+## 06) Deep Reflection
+
+### Does it work?
+
+No, the VM is throwing `java.lang.reflect.InaccessibleObjectException` exceptions at runtime.
+
+This happens because the library has not opened up its classes to deep reflection (access to private or protected
+members).
