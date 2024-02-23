@@ -3,6 +3,7 @@ plugins {
 }
 
 application {
+    mainModule = "x22_jpms.appl"
     mainClass = "appl.ModulesExerciseApp"
     applicationDefaultJvmArgs = ["-Djansi.passthrough=true", "-Dfile.encoding=UTF-8"]
 }
