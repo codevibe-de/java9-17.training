@@ -15,10 +15,7 @@ import static appl.jansi_ext.JansiColors.*;
 
 public class ModulesExerciseApp {
 
-    public ModulesExerciseApp() {
-        AnsiConsole.systemInstall();
-        cyan.println("\nApp starting...");
-    }
+    // --- main logic ---
 
     public static void main(String[] args) {
         // setup
@@ -40,6 +37,15 @@ public class ModulesExerciseApp {
         // done
         System.out.println();
     }
+
+
+    // --- constructors and methods ---
+
+    public ModulesExerciseApp() {
+        AnsiConsole.systemInstall();
+        cyan.println("\nApp starting...");
+    }
+
 
     private static void printSeparator() {
         yellow.println(StringUtils.repeat('-', 80));
