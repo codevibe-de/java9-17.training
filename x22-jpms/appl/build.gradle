@@ -12,4 +12,5 @@ application {
 dependencies {
     implementation 'org.fusesource.jansi:jansi:2.4.1'
     implementation project(":books-core")
+    implementation project(":books-report")
 }

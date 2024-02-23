@@ -3,8 +3,12 @@ package appl;
 import appl.reflection.Mapper;
 import book.api.Book;
 import book.api.Publisher;
+import book.io.BookReader;
+import book.io.BookReportWriter;
 import org.apache.commons.lang3.StringUtils;
 import org.fusesource.jansi.AnsiConsole;
+
+import java.util.Objects;
 
 import static appl.jansi_ext.JansiColors.*;
 
@@ -12,7 +16,7 @@ public class ModulesExerciseApp {
 
     // --- main logic ---
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // # Setup
         var app = new ModulesExerciseApp();
         printSeparator();
@@ -26,16 +30,16 @@ public class ModulesExerciseApp {
         app.investigate(new Publisher("Sun Microsystems"));
 
         // # Work with books-report API
-//        printSeparator();
-//        String resourceName = "books.csv";
-//        var in = Objects.requireNonNull(
-//                ClassLoader.getSystemResourceAsStream(resourceName),
-//                "Resource '%s' not found".formatted(resourceName)
-//        );
-//        String report = BookReportWriter.getStringInstance().generateReport(
-//                new BookReader().readBooksFromCsv(in)
-//        );
-//        cyan.println(report);
+        printSeparator();
+        String resourceName = "books.csv";
+        var in = Objects.requireNonNull(
+                ClassLoader.getSystemResourceAsStream(resourceName),
+                "Resource '%s' not found".formatted(resourceName)
+        );
+        String report = BookReportWriter.getStringInstance().generateReport(
+                new BookReader().readBooksFromCsv(in)
+        );
+        cyan.println(report);
 
         // # Done
         System.out.println();
