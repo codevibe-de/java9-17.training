@@ -19,12 +19,10 @@ App starting...
 ## 01) Turn the application into a JPMS module
 
 Add a `module-info.java` file to the root of your sources directory to convert your application into
-a JPMS **modularized** application.
+a JPMS **modularized** application. Use the module name `x22_jpms.appl`.
 
-Use the module name `x22_jpms.appl`.
-
-To make Gradle run the application using the "module-path" instead of the "classpath" argument
-you need to add the following line to `./appl/build.gradle` right after the "mainClass" line:
+Also perform the second step required to make Gradle recognize the application as being a proper module
+by adding the following line to `./appl/build.gradle` right after the "mainClass" line:
 
 ````
 mainModule = "x22_jpms.appl"
@@ -38,7 +36,8 @@ Further reading:
 
 ## 02) Fix it
 
-Fix your application by adding the missing `requires` imports to your application module.
+Fix your application by adding the missing `requires <module-name>` imports to your application module.
+Code completion can help you with the module names (e.g. type "jansi" and press CTRL-SPACE).
 
 ## 03) Classpath Investigation
 
@@ -48,13 +47,14 @@ Execute your application on the command line with additional output:
 gradlew --info appl:run 
 ````
 
-Now examine how Gradle is calling the `java.exe` executable in terms of classpath construction.
+After quite some output you will see a line starting with `Starting process 'command`.
+
+Within that line you can see how Gradle calls the java executable to launch the application including
+the classpath and other arguments.
+
+Examine how Gradle is calling the `java.exe` executable in terms of classpath construction.
 
 What library-specific arguments are passed to the `java` command?
-
-Further reading:
-
-* https://docs.gradle.org/current/userguide/java_library_plugin.html#sec:java_library_modular
 
 ## 04) Using books-core
 
