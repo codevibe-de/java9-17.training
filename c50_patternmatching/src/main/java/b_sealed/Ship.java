@@ -1,4 +1,4 @@
-package f_sealed;
+package b_sealed;
 
 public sealed interface Ship permits SailingShip, Ferry {
 }

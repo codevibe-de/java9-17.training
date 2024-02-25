@@ -1,16 +1,21 @@
 package x_logging;
 
 import org.junit.jupiter.api.Test;
+import org.slf4j.LoggerFactory;
 
 import static java.lang.System.Logger.Level.*;
 
 public class SystemLoggerApp {
 
     @Test
+    void logbackDirectly() {
+        LoggerFactory.getLogger("test").info("Test!!!");
+    }
+
+
+    @Test
     void performLogging() {
         System.Logger logger = System.getLogger(getClass().getName());
-        System.out.println(logger.getName());
-
         logger.log(DEBUG, "Starting");
 
         var what = "day";
@@ -27,6 +32,14 @@ public class SystemLoggerApp {
 
     private String createDiagnostics() {
         return "";
+    }
+
+
+    @Test
+    void checkLevel() {
+        System.out.println(
+                System.getLogger("java.runtime").isLoggable(DEBUG)
+        );
     }
 
 }
