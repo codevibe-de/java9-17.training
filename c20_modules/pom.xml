@@ -25,7 +25,6 @@
         <module>c22c_reflection</module>
         <module>c22d_indirect</module>
         <module>c22f_automatic</module>
-        <module>c22f_foo</module>
     </modules>
 
 </project>
