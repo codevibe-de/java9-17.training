@@ -16,9 +16,10 @@ public class ResourceTryApp {
             final int first = in.read();
             System.out.println((char) first);
         } catch (final IOException e) {
-            System.out.println(e);
+            throw new RuntimeException(e);
         }
     }
+
 
     @Test
     void newTryWithResource() throws Exception {
@@ -28,9 +29,10 @@ public class ResourceTryApp {
             final int first = in.read();
             System.out.println((char) first);
         } catch (final IOException e) {
-            System.out.println(e);
+            throw new RuntimeException(e);
         }
     }
+
 
     @Test
     void oldTryWithResourceUsingHelperMethod() throws Exception {
@@ -41,7 +43,7 @@ public class ResourceTryApp {
     }
 
     private static void copy1(InputStream in, OutputStream out) {
-        // before Java 9 we need to reassign AutoClosables
+        // before Java 9 we would need to reassign AutoClosables to achieve the desired auto-closing
         try (InputStream i = in; OutputStream o = out) {
             int b;
             while ((b = i.read()) != -1) {
@@ -51,6 +53,7 @@ public class ResourceTryApp {
             throw new RuntimeException(e);
         }
     }
+
 
     @Test
     void newTryWithResourceUsingHelperMethod() throws Exception {

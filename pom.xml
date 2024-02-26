@@ -10,14 +10,14 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>common</module>
         <module>c20_modules</module>
         <module>c30_syntax</module>
         <module>c40_std-api-changes</module>
         <module>c42_class-changes</module>
-        <module>common</module>
-        <module>misc</module>
         <module>c50_patternmatching</module>
-        <module>e30_syntax</module>
+        <module>misc</module>
+        <module>x30_syntax</module>
     </modules>
 
     <properties>

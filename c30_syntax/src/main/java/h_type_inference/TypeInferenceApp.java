@@ -71,6 +71,9 @@ public class TypeInferenceApp {
     }
 
 
+    /**
+     * Demonstrates that "var" assignments are not as flexible when using "final".
+     */
     @Test
     void illegalImmediateAssignmentToVar() {
         logMethodCall();
@@ -89,16 +92,21 @@ public class TypeInferenceApp {
     }
 
 
+    @SuppressWarnings("Convert2MethodRef")
     @Test
     void illegalLambdaAssignmentToVar() {
         logMethodCall();
-        Function<String, Integer> foo = String::length;
-        var result = foo.apply("Hello");
-        System.out.println(result);
-        // var bar = s -> s.length();  // illegal (-> Target Typing)
+        Function<String, Integer> foo = s -> s.length();
+        Function<String, Integer> foo2 = String::length;
+//        var bar = s -> s.length();  // illegal (Cannot infer type...)
+//        var bar2 = String::length;  // illegal (Cannot infer type...)
     }
 
 
+    /**
+     * Demonstrates that we cannot reassign an anonymous instance to a var, since the type of the
+     * var-type is *exactly* typed to the anonymous class (TypeInferenceApp$0.class)
+     */
     @Test
     void anonymousClassAssignment() {
         logMethodCall();
@@ -123,17 +131,11 @@ public class TypeInferenceApp {
         logMethodCall();
         var foo = new Object() {
             public int bar = 77;
-
             public void alpha() {
                 System.out.println("alpha");
             }
-
-            public void beta() {
-                System.out.println("beta");
-            }
         };
         foo.alpha();
-        foo.beta();
         System.out.println(foo.bar);
     }
 

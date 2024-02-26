@@ -40,9 +40,14 @@ public class StringApp {
 
     @Test
     void transform() {
-        Function<String,String> snakeCaseFct =
-                (String s) -> String.join("-", s.toLowerCase().split("[\\s,.;]+"));
-        System.out.println("Hello, dear Planet Earth".transform(snakeCaseFct));
+        Function<String, String> snakeCaseFct =
+                (String s) -> String.join(
+                        "-",
+                        s.toLowerCase().split("[\\s,.;]+")
+                );
+        System.out.println(
+                "Hello, dear Planet Earth".transform(snakeCaseFct)
+        );
     }
 
 

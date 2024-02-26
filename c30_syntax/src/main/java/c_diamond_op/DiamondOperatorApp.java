@@ -1,5 +1,3 @@
-// http://javasampleapproach.com/java-9-tutorial
-
 package c_diamond_op;
 
 import org.junit.jupiter.api.MethodOrderer;
@@ -9,65 +7,21 @@ import org.junit.jupiter.api.TestMethodOrder;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.NoSuchElementException;
-import java.util.function.Consumer;
 import java.util.function.Function;
-import java.util.function.Supplier;
 
 import static utils.MethodLogger.logMethodCall;
-
-class Drink {
-}
-
-class Wine extends Drink {
-}
-
-class RedWine extends Wine {
-}
-
-class Range implements Iterable<Integer> {
-    public final int first;
-    public final int last;
-
-    public Range(int first, int last) {
-        this.first = first;
-        this.last = last;
-    }
-
-    @Override
-    public Iterator<Integer> iterator() {
-        return new Iterator<>() {
-            int current = first;
-
-            @Override
-            public boolean hasNext() {
-                return current <= last;
-            }
-
-            @Override
-            public Integer next() {
-                if (!hasNext()) {
-                    throw new NoSuchElementException();
-                }
-                return current++;
-            }
-        };
-    }
-
-}
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class DiamondOperatorApp {
 
+    /**
+     * Shows how we previously had to provide generic types in the constructor call
+     */
     @SuppressWarnings("Convert2Diamond")
     @Test
     @Order(0)
     void demoFunctionOld() {
         logMethodCall();
-        List<String> list = new ArrayList<>();
         final Function<String, Integer> func = new Function<String, Integer>() {
             @Override
             public Integer apply(String s) {
@@ -75,9 +29,12 @@ public class DiamondOperatorApp {
                 return s.length();
             }
         };
-        System.out.println(func.apply("Hello"));
+        func.apply("Hello");
     }
 
+    /**
+     * Same as above but now without generic types in the constructor call
+     */
     @Test
     @Order(100)
     void demoFunctionNew() {
@@ -89,119 +46,7 @@ public class DiamondOperatorApp {
                 return s.length();
             }
         };
-        System.out.println(func.apply("Hello"));
-    }
-
-    @Test
-    @Order(200)
-    void demoConsumer1() {
-        logMethodCall();
-        Consumer<Wine> c = new Consumer<>() {
-            @Override
-            public void accept(Wine w) {
-                printGenericType(this);
-                System.out.println(w);
-            }
-        };
-        c.accept(new RedWine());
-    }
-
-    @Test
-    @Order(300)
-    void demoConsumer2() {
-        logMethodCall();
-        Consumer<? super Wine> c = new Consumer<Drink>() {
-            @Override
-            public void accept(Drink w) {
-                printGenericType(this);
-                System.out.println(w);
-            }
-        };
-        c.accept(new RedWine());
-    }
-
-    @Test
-    @Order(400)
-    void demoConsumer3() {
-        logMethodCall();
-        Consumer<? super Wine> c = new Consumer<>() {
-            @Override
-            public void accept(Wine w) {
-                printGenericType(this);
-                System.out.println(w);
-            }
-        };
-        c.accept(new RedWine());
-    }
-
-    @Test
-    @Order(500)
-    void demoSupplier1() {
-        logMethodCall();
-        Supplier<Wine> s = new Supplier<>() {
-            @Override
-            public Wine get() {
-                printGenericType(this);
-                return new RedWine();
-            }
-        };
-        Wine w = s.get();
-        System.out.println(w);
-    }
-
-    @Test
-    @Order(600)
-    void demoSupplier2() {
-        logMethodCall();
-        Supplier<? extends Wine> s = new Supplier<RedWine>() {
-            @Override
-            public RedWine get() {
-                printGenericType(this);
-                return new RedWine();
-            }
-        };
-        Wine w = s.get();
-        System.out.println(w);
-    }
-
-    @Test
-    @Order(700)
-    void demoSupplier3() {
-        logMethodCall();
-        Supplier<? extends Wine> s = new Supplier<>() {
-            @Override
-            public Wine get() {
-                printGenericType(this);
-                return new Wine();
-            }
-        };
-        Wine w = s.get();
-        System.out.println(w);
-    }
-
-    @Test
-    @Order(800)
-    void demoSupplier4() {
-        logMethodCall();
-        Supplier<? extends Wine> s = new Supplier<>() {
-            @Override
-            public RedWine get() {
-                printGenericType(this);
-                return new RedWine();
-            }
-        };
-        Wine w = s.get();
-        System.out.println(w);
-    }
-
-    @Test
-    @Order(900)
-    void demoRange() {
-        logMethodCall();
-        Range r = new Range(10, 12);
-        for (Integer e : r) {
-            System.out.println(e);
-        }
+        func.apply("Hello");
     }
 
     private void printGenericType(Object obj) {
