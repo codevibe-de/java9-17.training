@@ -1,4 +1,4 @@
-package f_sealed;
+package b_sealed;
 
 public non-sealed class Ferry implements Ship {
 }

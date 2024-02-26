@@ -31,6 +31,7 @@ public class SwitchExpressionApp {
         }
     }
 
+
     @Test
     void newMultiValueCase() {
         logMethodCall();
@@ -48,6 +49,7 @@ public class SwitchExpressionApp {
         }
     }
 
+
     @Test
     void newArrowSyntax() {
         logMethodCall();
@@ -58,6 +60,7 @@ public class SwitchExpressionApp {
             case 7 -> System.out.println("sunday");
         }
     }
+
 
     @Test
     void newArrowSyntaxAsExpression() {
