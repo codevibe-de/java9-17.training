@@ -13,6 +13,27 @@ import java.util.concurrent.TimeUnit;
 public class SimpleReactiveStreamsApp {
 
     /**
+     * Demonstrates SubmissionPublisher instantiations
+     */
+    void instantiateSubmissionPublisher() {
+        // has default buffer size of 256
+        var pub1 = new SubmissionPublisher<String>();
+
+        // custom executor and buffer size
+        var pub2 = new SubmissionPublisher<String>(
+                ForkJoinPool.commonPool(),
+                0
+        );
+
+        // custom executor, buffer size and error-handler
+        var pub3 = new SubmissionPublisher<String>(
+                Runnable::run,
+                0,
+                (subscr, err) -> err.printStackTrace()
+        );
+    }
+
+    /**
      * Shows that subscription occurs in a separate thread -- without sleep no output
      */
     @Test
@@ -109,7 +130,10 @@ public class SimpleReactiveStreamsApp {
         MethodLogger.logMethodCall();
         TimedLogger log = new TimedLogger();
 
-        var publisher = new SubmissionPublisher<String>(ForkJoinPool.commonPool(), 1);
+        var publisher = new SubmissionPublisher<String>(
+                ForkJoinPool.commonPool(),
+                1
+        );
         var subscriber = new SimpleSubscriber("subscriber", log);
         publisher.subscribe(subscriber);
 
