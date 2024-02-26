@@ -1,6 +1,6 @@
 package a_default_methods;
 
-public class GreeterImpl implements Greeter {
+public class GreetingProviderImpl implements GreetingProvider {
 
     @Override
     public String getGreeting() {

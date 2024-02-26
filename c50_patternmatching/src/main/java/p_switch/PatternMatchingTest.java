@@ -26,9 +26,12 @@ public class PatternMatchingTest {
     void demoGuardedPattern() {
         var obj = createSomeObject(0);
         switch (obj) {
-            case Integer i when i < 100 -> out.println("Integer with value less than 100");
-            case Integer ignored -> out.println("Any other Integer");
-            default -> out.println("Default case");
+            case Integer i when i < 100 ->
+                    out.println("Integer with value less than 100");
+            case Integer ignored ->
+                    out.println("Any other Integer");
+            default ->
+                    out.println("Default case");
         }
     }
 

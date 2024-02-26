@@ -13,4 +13,8 @@ public class DefaultBookService implements BookService {
                 null
         );
     }
+
+    @SuppressWarnings("unused")
+    void somePackagePrivateMethod() {}
+
 }
