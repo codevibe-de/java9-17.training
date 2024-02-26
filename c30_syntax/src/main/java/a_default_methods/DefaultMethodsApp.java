@@ -6,9 +6,9 @@ public class DefaultMethodsApp {
 
     @Test
     void demoInterfaceCall() {
-        var greeter = new GreeterImpl();
-        System.out.println(greeter.isEmpty());
-        System.out.println(greeter.isNotEmpty());
+        var g = new GreetingProviderImpl();
+        System.out.println(g.isEmpty());
+        System.out.println(g.isNotEmpty());
     }
 
 }
