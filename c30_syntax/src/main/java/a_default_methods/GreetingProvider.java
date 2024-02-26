@@ -1,6 +1,6 @@
 package a_default_methods;
 
-public interface Greeter {
+public interface GreetingProvider {
 
     String getGreeting();
 

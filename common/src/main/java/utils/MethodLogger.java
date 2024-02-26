@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 public class    MethodLogger {
 
     private static final String LINE = "+---------------------------------------";
-    private static Object lock = new Object();
+    private static final Object lock = new Object();
 
     public static boolean enabled = true;
 
@@ -18,9 +18,9 @@ public class    MethodLogger {
             final List<StackWalker.StackFrame> stack = StackWalker.getInstance()
                     .walk(s -> s.limit(2).collect(Collectors.toList()));
             System.out.println(" ");
-            System.out.println(LINE);
-            System.out.println("| " + getSimpleClassName(stack.get(1).getClassName()) + "." + stack.get(1).getMethodName());
-            System.out.println(LINE);
+            System.out.println("\u001b[36;3m/" + "-".repeat(79));
+            System.out.println("| " + getSimpleClassName(stack.get(1).getClassName()) + "." + stack.get(1).getMethodName() + "");
+            System.out.println("\\" + "-".repeat(79) + "\u001b[0m");
             start();
         }
     }
