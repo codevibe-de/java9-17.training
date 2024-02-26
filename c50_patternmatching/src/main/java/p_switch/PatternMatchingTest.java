@@ -22,29 +22,31 @@ public class PatternMatchingTest {
         }
     }
 
-    @Test
-    void demoGuardedPattern() {
-        var obj = createSomeObject(0);
-        switch (obj) {
-            case Integer i when i < 100 ->
-                    out.println("Integer with value less than 100");
-            case Integer ignored ->
-                    out.println("Any other Integer");
-            default ->
-                    out.println("Default case");
-        }
-    }
+    // --- requires Java 21 ----:::
 
-    @Test
-    void demoParenthesizedPattern() {
-        var obj = createSomeObject(1);
-        switch (obj) {
-            case String s when (s.length() <= 5 || s.length() > 50) ->
-                    out.println("Very short or long String");
-            case String s -> out.println("Medium sized String");
-            default -> out.println("Anything else...");
-        }
-    }
+//    @Test
+//    void demoGuardedPattern() {
+//        var obj = createSomeObject(0);
+//        switch (obj) {
+//            case Integer i when i < 100 ->
+//                    out.println("Integer with value less than 100");
+//            case Integer ignored ->
+//                    out.println("Any other Integer");
+//            default ->
+//                    out.println("Default case");
+//        }
+//    }
+//
+//    @Test
+//    void demoParenthesizedPattern() {
+//        var obj = createSomeObject(1);
+//        switch (obj) {
+//            case String s when (s.length() <= 5 || s.length() > 50) ->
+//                    out.println("Very short or long String");
+//            case String s -> out.println("Medium sized String");
+//            default -> out.println("Anything else...");
+//        }
+//    }
 
     @Test
     void demoAllCases() {
