@@ -29,8 +29,8 @@ a JPMS **modularized** application. Use the module name `x22_jpms.appl`.
 Does it still compile or can you execute it?
 
 NOTE: From now on you need to execute `mvn -q --projects=appl compile exec:exec@runModule` to start
-your application
-when using Maven! The `runModule` identifies some other `<execution>` block in the build script,
+your application when using Maven!
+The `runModule` part identifies some other `<execution>` block in the build script,
 which correctly sets module-path and also declares the module to launch from our main class from.
 
 ## 02) Fix it
@@ -65,6 +65,7 @@ What library-specific arguments are passed to the `java` command?
 Add the following dependency to file `x22-jpms/appl/pom.xml`:
 
 ````xml
+
 <dependency>
     <groupId>${project.groupId}</groupId>
     <artifactId>x22-jpms-books-core</artifactId>
