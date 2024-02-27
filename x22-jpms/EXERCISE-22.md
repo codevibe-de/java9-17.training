@@ -2,7 +2,7 @@
 
 **NOTE:**:
 
-* all command-line exercise expect a terminal with `./x22-jpms` as the working directory.
+* all command-line exercises expect a terminal with `./x22-jpms/appl` as the working directory.
 * each exercise task has a solution in branch `x22-solution/taskXX`
 
 ## Easy Start
@@ -12,7 +12,7 @@ Take a look at the existing source code in submodule `appl`.
 Start the application:
 
 * in your IDE
-* and also on the command line using `gradlew -q appl:run`
+* and also on the command line using `mvn -q compile exec:exec@runApp`
 
 You should see some colorful output like:
 
