@@ -6,6 +6,9 @@ import java.time.LocalDate;
 
 import static java.lang.System.out;
 
+/**
+ * !! Pattern Matching in this class requires Java 17 Preview Features to be enabled !!
+ */
 public class PatternMatchingTest {
 
     @Test
@@ -22,29 +25,6 @@ public class PatternMatchingTest {
         }
     }
 
-    @Test
-    void demoGuardedPattern() {
-        var obj = createSomeObject(0);
-        switch (obj) {
-            case Integer i when i < 100 ->
-                    out.println("Integer with value less than 100");
-            case Integer ignored ->
-                    out.println("Any other Integer");
-            default ->
-                    out.println("Default case");
-        }
-    }
-
-    @Test
-    void demoParenthesizedPattern() {
-        var obj = createSomeObject(1);
-        switch (obj) {
-            case String s when (s.length() <= 5 || s.length() > 50) ->
-                    out.println("Very short or long String");
-            case String s -> out.println("Medium sized String");
-            default -> out.println("Anything else...");
-        }
-    }
 
     @Test
     void demoAllCases() {
@@ -55,6 +35,7 @@ public class PatternMatchingTest {
             // no default required thanks to sealed classes
         }
     }
+
 
     /**
      * This code is commented by design, since compilation fails with reason: "Label is dominated by
@@ -69,6 +50,7 @@ public class PatternMatchingTest {
 //        }
     }
 
+
     @Test
     void demoNullCaseLabel() {
         var obj = createSomeObject(-1);
@@ -76,9 +58,11 @@ public class PatternMatchingTest {
             case String s -> out.println("String");
             case CharSequence cs -> out.println("CharSequence");
             case null -> out.println("null");
+//            case Object o -> out.println("whatever");    // either this or next line
             default -> out.println("whatever");
         }
     }
+
 
     /**
      * The `case null` line is commented on purpose to show that the total-type-pattern `Object o`
@@ -94,6 +78,33 @@ public class PatternMatchingTest {
             // case null -> out.println("null");
         }
     }
+
+
+    // --- requires Java 21 ----:::
+
+//    @Test
+//    void demoGuardedPattern() {
+//        var obj = createSomeObject(0);
+//        switch (obj) {
+//            case Integer i when i < 100 ->
+//                    out.println("Integer with value less than 100");
+//            case Integer ignored ->
+//                    out.println("Any other Integer");
+//            default ->
+//                    out.println("Default case");
+//        }
+//    }
+//
+//    @Test
+//    void demoParenthesizedPattern() {
+//        var obj = createSomeObject(1);
+//        switch (obj) {
+//            case String s when (s.length() <= 5 || s.length() > 50) ->
+//                    out.println("Very short or long String");
+//            case String s -> out.println("Medium sized String");
+//            default -> out.println("Anything else...");
+//        }
+//    }
 
     //
     // --- helper

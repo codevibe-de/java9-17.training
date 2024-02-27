@@ -97,7 +97,7 @@ public class SwitchExpressionApp {
      * the result.
      */
     @Test
-    void demo5() {
+    void commonSuperclassForYieldedTypes() {
         logMethodCall();
         int x = new Random().nextInt(0, 4);
         Number n = switch (x) {
@@ -115,7 +115,7 @@ public class SwitchExpressionApp {
      * Demonstrates what type is inferred when using "var"
      */
     @Test
-    void demo6() {
+    void inferredTypeForVar() {
         logMethodCall();
         int x = new Random().nextInt(0, 4);
         var v = switch (x) {
@@ -148,6 +148,20 @@ public class SwitchExpressionApp {
             }
         };
         System.out.println(n);
+    }
+
+
+    /**
+     * Demonstrates a NullPointerException when switching on null
+     */
+    @Test
+    void switchingOnNull() {
+        Decision d = null;
+        var n = switch (d) {
+            case NO -> 0;
+            case YES -> 1;
+            case MAYBE -> -1;
+        };
     }
 
     private int getDayOfWeek() {
@@ -193,4 +207,9 @@ public class SwitchExpressionApp {
         };
     }
 
+    private static enum Decision {
+        YES,
+        NO,
+        MAYBE
+    }
 }
