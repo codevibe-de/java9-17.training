@@ -22,6 +22,61 @@ public class PatternMatchingTest {
         }
     }
 
+
+    @Test
+    void demoAllCases() {
+        var obj = instantiateClass("B");
+        switch (obj) {
+            case C c -> out.println("C");
+            case B b -> out.println("B");
+            // no default required thanks to sealed classes
+        }
+    }
+
+
+    /**
+     * This code is commented by design, since compilation fails with reason: "Label is dominated by
+     * a preceding case label 'CharSequence cs'".
+     */
+    @Test
+    void demoDominatedCaseLabel() {
+//        var obj = createSomeObject(1);
+//        switch (obj) {
+//            case CharSequence cs -> out.println("CharSequence");
+//            case String s -> out.println("String");
+//        }
+    }
+
+
+    @Test
+    void demoNullCaseLabel() {
+        var obj = createSomeObject(-1);
+        switch (obj) {
+            case String s -> out.println("String");
+            case CharSequence cs -> out.println("CharSequence");
+            case null -> out.println("null");
+//            case Object o -> out.println("whatever");    // either this or next line
+            default -> out.println("whatever");
+        }
+    }
+
+
+    /**
+     * The `case null` line is commented on purpose to show that the total-type-pattern `Object o`
+     * includes null. Compilation fails if uncommented.
+     */
+    @Test
+    void demoTotalTypePattern() {
+        var obj = createSomeObject(-1);
+        switch (obj) {
+            case String s -> out.println("String");
+            case CharSequence cs -> out.println("CharSequence");
+            case Object o -> out.println("Object");
+            // case null -> out.println("null");
+        }
+    }
+
+
     // --- requires Java 21 ----:::
 
 //    @Test
@@ -47,55 +102,6 @@ public class PatternMatchingTest {
 //            default -> out.println("Anything else...");
 //        }
 //    }
-
-    @Test
-    void demoAllCases() {
-        var obj = instantiateClass("B");
-        switch (obj) {
-            case C c -> out.println("C");
-            case B b -> out.println("B");
-            // no default required thanks to sealed classes
-        }
-    }
-
-    /**
-     * This code is commented by design, since compilation fails with reason: "Label is dominated by
-     * a preceding case label 'CharSequence cs'".
-     */
-    @Test
-    void demoDominatedCaseLabel() {
-//        var obj = createSomeObject(1);
-//        switch (obj) {
-//            case CharSequence cs -> out.println("CharSequence");
-//            case String s -> out.println("String");
-//        }
-    }
-
-    @Test
-    void demoNullCaseLabel() {
-        var obj = createSomeObject(-1);
-        switch (obj) {
-            case String s -> out.println("String");
-            case CharSequence cs -> out.println("CharSequence");
-            case null -> out.println("null");
-            default -> out.println("whatever");
-        }
-    }
-
-    /**
-     * The `case null` line is commented on purpose to show that the total-type-pattern `Object o`
-     * includes null. Compilation fails if uncommented.
-     */
-    @Test
-    void demoTotalTypePattern() {
-        var obj = createSomeObject(-1);
-        switch (obj) {
-            case String s -> out.println("String");
-            case CharSequence cs -> out.println("CharSequence");
-            case Object o -> out.println("Object");
-            // case null -> out.println("null");
-        }
-    }
 
     //
     // --- helper

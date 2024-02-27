@@ -1,4 +1,5 @@
 package b_sealed;
 
-public sealed interface Ship permits SailingShip, Ferry {
+public sealed interface Ship
+        permits SailingShip, Ferry {
 }

@@ -1,4 +1,5 @@
 package b_sealed;
 
-public non-sealed class Ferry implements Ship {
+public non-sealed class Ferry
+        implements Ship {
 }
