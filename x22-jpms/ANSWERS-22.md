@@ -52,6 +52,7 @@ We can see that Maven is putting the `target/classes` folder and all libraries i
 
 ### What is the problem?
 
-The class `Book` is not imported and hence not visible.
+The class `Book` is not imported (in terms of a regular Java `import com.example.Xyz` statement).
 
-BUT it cannot be imported, since the module, in which this class is residing, is not visible to our application.
+BUT it cannot be imported, since the module, in which this class is residing, is not visible to our
+application.
