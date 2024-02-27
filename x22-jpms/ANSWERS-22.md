@@ -63,5 +63,5 @@ application.
 
 No, the VM is throwing `java.lang.reflect.InaccessibleObjectException` exceptions at runtime.
 
-This happens because the library has not opened up its classes to deep reflection (access to private or protected
-members).
+This happens because the library has not opened up its classes to deep reflection (access to private
+or protected members).
