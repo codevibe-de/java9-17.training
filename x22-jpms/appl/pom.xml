@@ -29,18 +29,27 @@
                 <version>3.1.0</version>
                 <executions>
                     <execution>
-                        <id>runApp</id>
+                        <id>runClass</id>
                         <configuration>
                             <executable>java</executable>
                             <arguments>
                                 <argument>-Djansi.passthrough=true</argument>
                                 <argument>--class-path</argument>
                                 <classpath/>
-<!--
-                                <argument>&#45;&#45;module-path</argument>
-                                <modulepath/>
--->
                                 <argument>appl.ModulesExerciseApp</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>runModule</id>
+                        <configuration>
+                            <executable>java</executable>
+                            <arguments>
+                                <argument>-Djansi.passthrough=true</argument>
+                                <argument>--module-path</argument>
+                                <modulepath/>
+                                <argument>-m</argument>
+                                <argument>x22_jpms.appl/appl.ModulesExerciseApp</argument>
                             </arguments>
                         </configuration>
                     </execution>
