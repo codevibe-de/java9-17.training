@@ -65,7 +65,6 @@ What library-specific arguments are passed to the `java` command?
 Add the following dependency to file `x22-jpms/appl/pom.xml`:
 
 ````xml
-
 <dependency>
     <groupId>${project.groupId}</groupId>
     <artifactId>x22-jpms-books-core</artifactId>
