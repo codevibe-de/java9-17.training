@@ -22,8 +22,10 @@ class App {
 
         var n = p.x();
 
-        Arrays.stream(Point.class.getRecordComponents()).forEach(System.out::println);
+        Arrays.stream(Point.class.getRecordComponents())
+                .forEach(System.out::println);
     }
+
 
 //    @Test
 //    void jsonDeserialize() throws JsonProcessingException {
