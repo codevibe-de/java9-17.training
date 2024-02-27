@@ -1,7 +1,0 @@
-rootProject.name = 'x22-jpms'
-include 'appl'
-include 'books-core'
-include 'books-report'
-
-
-
