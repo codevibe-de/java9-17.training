@@ -15,7 +15,7 @@
         <module>c30_syntax</module>
         <module>c40_std-api-changes</module>
         <module>c42_class-changes</module>
-        <module>c50_patternmatching</module>
+        <module>c50_pattern-matching</module>
         <module>misc</module>
         <module>x30_syntax</module>
     </modules>
@@ -31,12 +31,12 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
-            <version>5.10.0</version>
+            <version>5.10.1</version>
         </dependency>
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
-            <version>3.24.2</version>
+            <version>3.25.2</version>
         </dependency>
     </dependencies>
 
@@ -48,7 +48,6 @@
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>3.11.0</version>
                     <configuration>
-                        <enablePreview />
                         <compilerArgs>--enable-preview</compilerArgs>
                     </configuration>
                 </plugin>

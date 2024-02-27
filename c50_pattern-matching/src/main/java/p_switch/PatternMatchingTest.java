@@ -6,6 +6,9 @@ import java.time.LocalDate;
 
 import static java.lang.System.out;
 
+/**
+ * !! Pattern Matching in this class requires Java 17 Preview Features to be enabled !!
+ */
 public class PatternMatchingTest {
 
     @Test
