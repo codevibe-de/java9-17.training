@@ -1,4 +1,4 @@
-package a_collection_factory_methods;
+package f_reactive_streams;
 
 import utils.TimedLogger;
 
