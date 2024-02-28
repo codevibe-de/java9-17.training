@@ -1,4 +1,4 @@
-package f_reactive_streams.xrc1_numberpublisher;
+package f_reactive_streams.x1_numberpublisher;
 
 import java.util.ArrayList;
 import java.util.List;
