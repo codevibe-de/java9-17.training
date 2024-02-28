@@ -1,4 +1,4 @@
-package f_reactive_streams.xrc4_booksearch;
+package f_reactive_streams.x4_booksearch;
 
 import java.util.List;
 import java.util.concurrent.Flow.Subscriber;

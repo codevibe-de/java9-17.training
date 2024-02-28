@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -12,25 +11,25 @@ import static utils.MethodLogger.logMethodCall;
 
 public class CollectionCopyOfApp {
 
+    /**
+     * Showcases copyOf for a List. Same applies to Set and Map.
+     */
     @Test
     void listCopyOf() {
         logMethodCall();
+        // create
         List<String> list = new ArrayList<>();
         list.add("red");
         list.add("green");
         list.add("blue");
-
+        // copy
         List<String> copy = List.copyOf(list);
-        System.out.println(copy.size());
-        copy.forEach(System.out::println);
-
+        // we cannot add to it
         try {
             copy.add("yellow");
         } catch (UnsupportedOperationException e) {
-            System.out.println("expected: " + e);
+            System.out.println("ERROR: " + e.getClass());
         }
-
-        // dito für Set und Map
     }
 
 
@@ -42,6 +41,9 @@ public class CollectionCopyOfApp {
     }
 
 
+    /**
+     * Demos Collectors.toUnmodifiableList -- same applies to Set and Map
+     */
     @Test
     void demoCollectorsToUnmodifiableList() {
         logMethodCall();
@@ -54,11 +56,9 @@ public class CollectionCopyOfApp {
         try {
             list2.add("yellow");
         } catch (UnsupportedOperationException e) {
-            System.out.println("expected: " + e);
+            System.out.println("ERROR: " + e.getClass());
         }
         list2.forEach(System.out::println);
-
-        // dito: toUnmodifiableSet, toUnmodifiableMap
     }
 
 }
