@@ -1,4 +1,4 @@
-package f_reactive_streams.xrc1_numberpublisher;
+package f_reactive_streams.x1_numberpublisher;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
