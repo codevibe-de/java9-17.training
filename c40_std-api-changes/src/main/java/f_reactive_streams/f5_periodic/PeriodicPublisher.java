@@ -15,10 +15,13 @@ class PeriodicPublisher<T> extends SubmissionPublisher<T> {
         this.periodicTask = scheduler.scheduleAtFixedRate(
                 () -> {
                     T element = supplier.get();
-                    tlog("submit " + element);
+                    tlog("submit " + element);  // todo use other logger
                     this.offer(element, null);
                 },
-                0, millis, TimeUnit.MILLISECONDS);
+                0, // no initial delay
+                millis, // interval
+                TimeUnit.MILLISECONDS
+        );
     }
 
     public void close() {

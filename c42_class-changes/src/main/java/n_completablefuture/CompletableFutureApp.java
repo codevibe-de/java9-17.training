@@ -17,19 +17,19 @@ public class CompletableFutureApp {
     @Test
     void demoPythagoras() {
         logMethodCall();
-        CompletableFuture<Double> f1 = new CompletableFuture<>();
-        CompletableFuture<Double> f2 = new CompletableFuture<>();
-        CompletableFuture<Double> f3 = f1.thenApplyAsync(x -> x * x);
-        CompletableFuture<Double> f4 = f2.thenApplyAsync(x -> x * x);
-        CompletableFuture<Double> f5 = f3.thenCombine(f4, (x, y) -> x + y);
-        CompletableFuture<Double> f6 = f5.thenApply(Math::sqrt);
-        f1.complete(3.0);
-        f2.complete(4.0);
+        CompletableFuture<Double> cf1_start = new CompletableFuture<>();
+        CompletableFuture<Double> cf2_start = new CompletableFuture<>();
+        CompletableFuture<Double> cf1_next = cf1_start.thenApplyAsync(x -> x * x);
+        CompletableFuture<Double> cf2_next = cf2_start.thenApplyAsync(x -> x * x);
+        CompletableFuture<Double> cf_combined = cf1_next.thenCombine(cf2_next, (x, y) -> x + y);
+        CompletableFuture<Double> cf_final = cf_combined.thenApply(Math::sqrt);
+        cf1_start.complete(3.0);
+        cf2_start.complete(4.0);
         try {
-            double result = f6.get();
+            double result = cf_final.get();
             System.out.println(result);
-        } catch (InterruptedException | ExecutionException e) {
-            System.out.println(e);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 
