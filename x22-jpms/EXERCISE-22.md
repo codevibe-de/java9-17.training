@@ -126,6 +126,8 @@ Finally, run your application again. Does it work?
 Fix it by adding the appropriate "opens" statement
 to `x22-jpms/books-core/src/main/java/module-info.java`.
 
+Don't forget to re-install the lib so that Maven is happy: `mvn --projects=books-core install`
+
 ## 08) Integrate "books-report"
 
 Uncomment the code lines beneath `# Work with books-report API`.
