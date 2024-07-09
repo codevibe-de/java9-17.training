@@ -41,7 +41,7 @@ public class MethodLogger {
             String s = Arrays.stream(params)
                     .map(p -> p == null ? "null" : p.toString())
                     .collect(Collectors.joining(", "));
-            System.out.printf("[%2d] >> %s(%s)\n", Thread.currentThread().threadId(), methodName(), s);
+            System.out.printf("[%2d] >> %s(%s)\n", Thread.currentThread().getId(), methodName(), s);
         }
     }
 
@@ -50,7 +50,7 @@ public class MethodLogger {
             return;
         synchronized (lock) {
             printIndent();
-            System.out.printf("[%2d] << %s()\n", Thread.currentThread().threadId(), methodName());
+            System.out.printf("[%2d] << %s()\n", Thread.currentThread().getId(), methodName());
         }
     }
 
@@ -59,14 +59,14 @@ public class MethodLogger {
             return;
         synchronized (lock) {
             printIndent();
-            System.out.printf("[%2d] -- %s\n", Thread.currentThread().threadId(), msg);
+            System.out.printf("[%2d] -- %s\n", Thread.currentThread().getId(), msg);
         }
     }
 
     private static final StackWalker walker = StackWalker.getInstance();
 
     private static void printIndent() {
-        int i = indents.computeIfAbsent(Thread.currentThread().threadId(), k -> indent++);
+        int i = indents.computeIfAbsent(Thread.currentThread().getId(), k -> indent++);
         while (i-- > 0)
             System.out.print("    ");
     }
