@@ -19,6 +19,7 @@
         <module>misc</module>
         <module>x22-jpms</module>
         <module>x30_syntax</module>
+        <module>x50_pattern-matching</module>
     </modules>
 
     <properties>
