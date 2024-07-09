@@ -8,6 +8,9 @@ import java.util.Comparator;
 
 public class ArraysApp {
 
+    /**
+     * Checks for equality of two arrays of `int` values using a range of indices.
+     */
     @Test
     void demoEqualsRange() throws Exception {
         MethodLogger.logMethodCall();
@@ -15,22 +18,23 @@ public class ArraysApp {
         int[] ints2 = new int[]{11, 12, 13, 14, 15, 16};
 
         // public static boolean equals(
-        // int[] a, int aFromIndex, int aToIndex,
-        // int[] b, int bFromIndex, int bToIndex)
+        //   int[] a, int aFromIndex, int aToIndex,
+        //   int[] b, int bFromIndex, int bToIndex
+        // )
         System.out.println(Arrays.equals(ints1, 1, 5, ints2, 0, 4));
-        /*
-         * int aLength = aToIndex - aFromIndex; int bLength = bToIndex - bFromIndex; if
-         * (aLength != bLength) return false;
-         */
     }
 
 
+    /**
+     * Checks for equality of two arrays of `Foo` objects using a custom comparator since `Foo` does not implement `Comparable`.
+     */
     @Test
     void demoEquals() throws Exception {
         MethodLogger.logMethodCall();
 
         class Foo {
             public final int x;
+
             public Foo(int x) {
                 this.x = x;
             }
@@ -48,6 +52,9 @@ public class ArraysApp {
     }
 
 
+    /**
+     * Compares two arrays of `int` values.
+     */
     @Test
     void demoComparePrimitive() throws Exception {
         MethodLogger.logMethodCall();
@@ -56,7 +63,7 @@ public class ArraysApp {
         System.out.println(Arrays.compare(ints1, ints2)); // 0
 
         int[] ints3 = new int[]{11, 12, 13, 15};
-        int[] ints4 = new int[]{11, 12, 13, 155};
+        int[] ints4 = new int[]{11, 12, 130, 150};
         System.out.println(Arrays.compare(ints3, ints4)); // -1
 
         int[] ints5 = new int[]{11, 12, 13, 155};
@@ -65,22 +72,24 @@ public class ArraysApp {
     }
 
 
+    /**
+     * Compares two arrays of `Foo` objects, which implement `Comparable`.
+     */
     @Test
     void demoCompareComparable() {
         MethodLogger.logMethodCall();
 
         class Foo implements Comparable<Foo> {
             public final int x;
-
             public Foo(int x) {
                 this.x = x;
             }
-
             @Override
             public int compareTo(Foo other) {
                 return Integer.compare(this.x, other.x);
             }
         }
+
         Foo[] foos1 = new Foo[]{new Foo(10), new Foo(11)};
         Foo[] foos2 = new Foo[]{new Foo(10), new Foo(11)};
         System.out.println(Arrays.compare(foos1, foos2));
@@ -95,6 +104,9 @@ public class ArraysApp {
     }
 
 
+    /**
+     * Compares two arrays of `Foo` objects, which do not implement `Comparable` using a custom comparator.
+     */
     @Test
     void demoCompareComparator() {
         MethodLogger.logMethodCall();
@@ -106,27 +118,15 @@ public class ArraysApp {
             }
         }
 
-        // comparator as anonymous class
-        Foo[] foos1 = new Foo[]{new Foo(10), new Foo(11)};
+        Foo[] foos1 = new Foo[]{new Foo(10), new Foo(111)};
         Foo[] foos2 = new Foo[]{new Foo(10), new Foo(11)};
-        System.out.println(Arrays.compare(foos1, foos2, new Comparator<Foo>() {
-            @Override
-            public int compare(Foo foo1, Foo foo2) {
-                return Integer.compare(foo1.x, foo2.x);
-            }
-        }));
-
-        // comparator as lambdas
-        Foo[] foos3 = new Foo[]{new Foo(10), new Foo(11)};
-        Foo[] foos4 = new Foo[]{new Foo(10), new Foo(111)};
-        System.out.println(Arrays.compare(foos3, foos4, (foo1, foo2) -> Integer.compare(foo1.x, foo2.x)));
-
-        Foo[] foos5 = new Foo[]{new Foo(10), new Foo(111)};
-        Foo[] foos6 = new Foo[]{new Foo(10), new Foo(11)};
-        System.out.println(Arrays.compare(foos5, foos6, Comparator.comparing(foo -> foo.x)));
+        System.out.println(Arrays.compare(foos1, foos2, Comparator.comparing(foo -> foo.x)));
     }
 
 
+    /**
+     * Finds the index of the first mismatch between two arrays of `int` values.
+     */
     @Test
     void demoMismatch() throws Exception {
         MethodLogger.logMethodCall();

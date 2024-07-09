@@ -33,6 +33,7 @@ public class CompletableFutureApp {
         }
     }
 
+
     @Test
     void demoPythagorasVerbose() {
         logMethodCall();
@@ -74,6 +75,7 @@ public class CompletableFutureApp {
         }
     }
 
+
     @Test
     void demoSimple() throws InterruptedException, ExecutionException {
         logMethodCall();
@@ -83,6 +85,7 @@ public class CompletableFutureApp {
         int result = f2.get();
         System.out.println(result);
     }
+
 
     @Test
     void demoCompleteAsync() throws InterruptedException, ExecutionException {
@@ -95,22 +98,32 @@ public class CompletableFutureApp {
         System.out.println(result);
     }
 
+
+    /**
+     * Demonstrates the use of the `completeOnTimeout` method by completing the future with a default value if the
+     * computation takes too long.
+     */
     @Test
     void demoCompleteOnTimeout() throws InterruptedException, ExecutionException {
         logMethodCall();
         CompletableFuture<Integer> f1 = new CompletableFuture<>();
         CompletableFuture<Integer> f2 = f1.thenApplyAsync(x -> {
-            sleep(2000);
+            sleep(2000); // this is more than timeout
             return x * x;
         });
         CompletableFuture<Integer> f3 = f2.completeOnTimeout(-1, 1000, TimeUnit.MILLISECONDS);
-        System.out.println(f3 == f2);
+        System.out.println(f3 == f2); // completeOnTimeout returns this
 
         f1.complete(3);
         int result = f3.get();
         System.out.println(result);
     }
 
+
+    /**
+     * Demonstrates the use of the `orTimeout` method by completing the future exceptionally if the computation takes
+     * too long.
+     */
     @Test
     void demoOrTimeout() {
         logMethodCall();
@@ -130,6 +143,7 @@ public class CompletableFutureApp {
         }
     }
 
+
     @Test
     void demoCompletedFuture() throws InterruptedException, ExecutionException {
         logMethodCall();
@@ -138,6 +152,7 @@ public class CompletableFutureApp {
         int result = f2.get();
         System.out.println(result);
     }
+
 
     @Test
     void demoFailedFuture() {
@@ -152,6 +167,7 @@ public class CompletableFutureApp {
         }
     }
 
+
     @Test
     void demoCompletedStage() throws InterruptedException, ExecutionException {
         logMethodCall();
@@ -159,6 +175,7 @@ public class CompletableFutureApp {
         CompletionStage<Integer> f2 = f1.thenApplyAsync(x -> x * x);
         f2.whenComplete((Integer v, Throwable t) -> System.out.println(v + " " + t));
     }
+
 
     @Test
     void demoFailedStage() throws InterruptedException, ExecutionException {
@@ -168,6 +185,7 @@ public class CompletableFutureApp {
         f2.whenComplete((Integer v, Throwable t) -> System.out.println(v + " " + t));
     }
 
+
     @Test
     void demoDefaultExecutor() {
         logMethodCall();
@@ -175,6 +193,7 @@ public class CompletableFutureApp {
         Executor executor = f.defaultExecutor();
         System.out.println(executor);
     }
+
 
     @Test
     void demoDelayedExecutor() throws InterruptedException, ExecutionException {
@@ -185,6 +204,7 @@ public class CompletableFutureApp {
         int result = f2.get();
         System.out.println(result);
     }
+
 
     @Test
     void demoNewIncompleteFuture() throws InterruptedException, ExecutionException {
@@ -198,6 +218,7 @@ public class CompletableFutureApp {
         System.out.println(result);
     }
 
+
     private static void sleep(int millis) {
         try {
             Thread.sleep(millis);
@@ -205,6 +226,7 @@ public class CompletableFutureApp {
             throw new RuntimeException(e);
         }
     }
+
 
     static class MyFuture<T> extends CompletableFuture<T> {
         @SuppressWarnings("unchecked")
