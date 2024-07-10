@@ -3,26 +3,33 @@ package calculator;
 public interface CalculatorApi {
 
     default int calculate(int a, int b, String operator) {
-        switch (operator) {
-            case "+":
-                return a + b;
-            case "-":
-                return a - b;
-            case "*":
-                return a * b;
-            case "/":
-                return a / b;
-            default:
-                throw new IllegalArgumentException("Unknown operator: " + operator);
-        }
+        return switch (operator) {
+            case "+" -> add(a, b);
+            case "-" -> subtract(a, b);
+            case "*" -> multiply(a, b);
+            case "/" -> divide(a, b);
+            default -> throw new IllegalArgumentException("Unknown operator: " + operator);
+        };
     }
 
-    int add(int a, int b);
+    private int calculateByOperation(int a, int b, CalculatorOperation operation) {
+        return operation.getOperator().apply(a, b);
+    }
 
-    int subtract(int a, int b);
+    default int add(int a, int b) {
+        return calculateByOperation(a, b, CalculatorOperation.ADD);
+    }
 
-    int multiply(int a, int b);
+    default int subtract(int a, int b) {
+        return calculateByOperation(a, b, CalculatorOperation.SUBTRACT);
+    }
 
-    int divide(int a, int b);
+    default int multiply(int a, int b) {
+        return calculateByOperation(a, b, CalculatorOperation.MULTIPLY);
+    }
+
+    default int divide(int a, int b) {
+        return calculateByOperation(a, b, CalculatorOperation.DIVIDE);
+    }
 
 }
