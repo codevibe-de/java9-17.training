@@ -34,7 +34,6 @@ public class ArraysApp {
 
         class Foo {
             public final int x;
-
             public Foo(int x) {
                 this.x = x;
             }

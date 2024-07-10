@@ -21,4 +21,7 @@ public enum CalculatorOperation {
         return operatorId;
     }
 
+    public BinaryOperator<Integer> getOperator() {
+        return operator;
+    }
 }
