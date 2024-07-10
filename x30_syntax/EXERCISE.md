@@ -17,12 +17,12 @@ Schauen Sie sich das Interface `Calculator` an.
 
 Die bestehende Methode `calculate()` soll nicht mehr verwendet werden -- markieren Sie diese also als Deprecated.
 
-Eine neue **private** Methode `calculateByOperator()` soll die Berechnung durchführen -- implementieren Sie diese.
+Eine neue **private** Methode `calculateByOperation()` soll die Berechnung durchführen -- implementieren Sie diese.
 Dabei sollen folgende Features verwendet werden:
 
 - private interface methods
 - switch expressions
-- die vorhandene `CalculatorOperator`-Enum
+- die vorhandene `CalculatorOperation`-Enum
 
 Die existierenden Methoden `add()`, `subtract()`, `multiply()` und `divide()` sollen nun die neue
 Methode `calculateByOperator()` verwenden.
