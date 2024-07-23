@@ -47,6 +47,14 @@ public class Optional1App {
     }
 
 
+    void allThree() {
+        Optional<String> o = Optional.empty();
+        o.orElse("other");  // #1
+        o.orElseGet(() -> "hello world"); // #2 -- hier muss ich liefern
+        o.or(() -> Optional.of("hello world")); // #3 -- hier kann es empty bleiben
+    }
+
+
     static void demoIfPresentOrElse() {
         logMethodCall();
 
