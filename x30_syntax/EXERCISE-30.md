@@ -31,4 +31,6 @@ Implement this method by using the following features:
 - private interface methods
 - switch expressions
 - the existing `CalculatorOperator` enum
+- var
+- System.Logger (use `System.getLogger()` to get a logger)
 
