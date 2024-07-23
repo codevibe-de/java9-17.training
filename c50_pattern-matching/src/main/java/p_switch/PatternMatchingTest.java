@@ -65,16 +65,19 @@ public class PatternMatchingTest {
 
 
     /**
-     * The `case null` line is commented on purpose to show that the total-type-pattern `Object o`
+     * The `case null` line is commented on purpose to show that the total-type-pattern `CharSequence cs`
      * includes null. Compilation fails if uncommented.
+     *
+     * In this demo `CharSequence` is already a total pattern since it covers all possible types returned
+     * by the method `createCharSequence()`.
      */
     @Test
     void demoTotalTypePattern() {
-        var obj = createSomeObject(-1);
+        var obj = createCharSequence();
         switch (obj) {
             case String s -> out.println("String");
-            case CharSequence cs -> out.println("CharSequence");
-            case Object o -> out.println("Object");
+            case StringBuffer sb -> out.println("StringBuffer");
+//            case CharSequence cs -> out.println("CharSequence");
             // case null -> out.println("null");
         }
     }
@@ -121,6 +124,10 @@ public class PatternMatchingTest {
             case 2 -> LocalDate.now();
             default -> throw new IllegalStateException("Unexpected value");
         };
+    }
+
+    private CharSequence createCharSequence() {
+        return "Hello";
     }
 
     /**
