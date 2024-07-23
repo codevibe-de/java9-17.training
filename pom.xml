@@ -19,6 +19,8 @@
         <module>misc</module>
         <module>x22-jpms</module>
         <module>x30_syntax</module>
+        <module>x50_pattern-matching</module>
+        <module>c60_misc</module>
     </modules>
 
     <properties>
@@ -47,15 +49,12 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.11.0</version>
-                    <configuration>
-                        <compilerArgs>--enable-preview</compilerArgs>
-                    </configuration>
+                    <version>3.13.0</version>
                 </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>exec-maven-plugin</artifactId>
-                    <version>3.1.1</version>
+                    <version>3.3.0</version>
                 </plugin>
             </plugins>
         </pluginManagement>

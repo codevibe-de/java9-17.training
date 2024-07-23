@@ -1,4 +1,4 @@
-package appl.c_reflection;
+package appl.d_reflection;
 
 import java.lang.reflect.Field;
 import java.util.HashMap;
