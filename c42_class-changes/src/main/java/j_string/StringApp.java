@@ -42,7 +42,7 @@ public class StringApp {
     void transform() {
         Function<String, String> snakeCaseFct =
                 (String s) -> String.join(
-                        "-",
+                        "_",
                         s.toLowerCase().split("[\\s,.;]+")
                 );
         System.out.println(

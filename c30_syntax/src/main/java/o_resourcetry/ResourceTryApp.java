@@ -55,13 +55,18 @@ public class ResourceTryApp {
     }
 
 
+    /**
+     * This demo makes use of the LoggingOutputStream decorator to observe when the stream is being closed.
+     * Note that a ByteArrayOutputStream can be used again even after it has been closed.
+     */
     @Test
     void newTryWithResourceUsingHelperMethod() throws Exception {
         MethodLogger.logMethodCall();
-        OutputStream out = new ByteArrayOutputStream();
+        OutputStream out = new LoggingOutputStream(new ByteArrayOutputStream());
         copy2(new FileInputStream(FILENAME), out);
         System.out.println(out);
     }
+
 
     private static void copy2(InputStream in, OutputStream out) {
         try (in; out) {
@@ -71,6 +76,34 @@ public class ResourceTryApp {
             }
         } catch (final IOException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+
+    /**
+     * Decorator pattern for observing when this stream is being closed.
+     */
+    static class LoggingOutputStream extends OutputStream {
+        private final OutputStream out;
+
+        public LoggingOutputStream(OutputStream out) {
+            this.out = out;
+        }
+
+        @Override
+        public void write(int b) throws IOException {
+            out.write(b);
+        }
+
+        @Override
+        public void close() throws IOException {
+            System.out.println("Closing stream");
+            out.close();
+        }
+
+        @Override
+        public String toString() {
+            return out.toString();
         }
     }
 }
