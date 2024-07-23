@@ -12,6 +12,10 @@
 
     <artifactId>c50_pattern-matching</artifactId>
 
+    <properties>
+        <version.java>21</version.java>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>com.fasterxml.jackson.module</groupId>

@@ -30,6 +30,11 @@ class Gamma {
 public class Application {
 
     @Test
+    void oldStyle() {
+        StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+    }
+
+    @Test
     void demoForEach() {
         logMethodCall();
         Alpha.alpha(() -> {
