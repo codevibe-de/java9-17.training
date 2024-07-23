@@ -8,21 +8,13 @@ public interface CalculatorApi {
                 return a + b;
             case "-":
                 return a - b;
-            case "*":
-                return a * b;
-            case "/":
-                return a / b;
             default:
-                throw new IllegalArgumentException("Unknown operator: " + operator);
+                throw new IllegalArgumentException("Unhandled operator: " + operator);
         }
     }
 
     int add(int a, int b);
 
     int subtract(int a, int b);
-
-    int multiply(int a, int b);
-
-    int divide(int a, int b);
 
 }
