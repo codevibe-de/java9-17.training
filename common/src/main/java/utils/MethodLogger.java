@@ -6,9 +6,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class    MethodLogger {
+public class MethodLogger {
 
-    private static final String LINE = "+---------------------------------------";
     private static final Object lock = new Object();
 
     public static boolean enabled = true;
@@ -19,7 +18,7 @@ public class    MethodLogger {
                     .walk(s -> s.limit(2).collect(Collectors.toList()));
             System.out.println(" ");
             System.out.println("\u001b[36;3m/" + "-".repeat(79));
-            System.out.println("| " + getSimpleClassName(stack.get(1).getClassName()) + "." + stack.get(1).getMethodName() + "");
+            System.out.println("| " + getSimpleClassName(stack.get(1).getClassName()) + "." + stack.get(1).getMethodName());
             System.out.println("\\" + "-".repeat(79) + "\u001b[0m");
             start();
         }
@@ -39,7 +38,9 @@ public class    MethodLogger {
             return;
         synchronized (lock) {
             printIndent();
-            String s = String.join(", ", Arrays.stream(params).map(p -> p == null ? "null" : p.toString()).collect(Collectors.toList()));
+            String s = Arrays.stream(params)
+                    .map(p -> p == null ? "null" : p.toString())
+                    .collect(Collectors.joining(", "));
             System.out.printf("[%2d] >> %s(%s)\n", Thread.currentThread().getId(), methodName(), s);
         }
     }
