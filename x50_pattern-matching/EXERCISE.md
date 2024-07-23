@@ -14,8 +14,8 @@ This can be implemented by exactly three subtypes:
 
 Create a `Customer` record, which holds:
 
-* id of type Long
-* fullName of type String
+* `id` of type Long
+* `fullName` of type String
 
 ## 3) Order product-type
 
