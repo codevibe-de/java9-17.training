@@ -12,4 +12,8 @@
 
     <artifactId>x50_pattern-matching</artifactId>
 
+    <properties>
+        <version.java>21</version.java>
+    </properties>
+
 </project>
