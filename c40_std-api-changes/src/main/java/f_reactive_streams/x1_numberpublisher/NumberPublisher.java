@@ -1,17 +1,16 @@
 package f_reactive_streams.x1_numberpublisher;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import utils.TimedLogger;
 
 import java.util.concurrent.SubmissionPublisher;
 import java.util.stream.IntStream;
 
 public class NumberPublisher extends SubmissionPublisher<Integer> {
 
-    private int from;
-    private int to;
+    private final int from;
+    private final int to;
 
-    private static final Log LOG = LogFactory.getLog(NumberPublisher.class);
+    private static final TimedLogger LOG = new TimedLogger();
 
     public NumberPublisher(int from, int to) {
         this.from = from;
@@ -19,12 +18,12 @@ public class NumberPublisher extends SubmissionPublisher<Integer> {
     }
 
     public void createItems() {
-        LOG.debug("Start publishing items");
+        LOG.log("Start publishing items");
         IntStream.rangeClosed(this.from, this.to).forEach(n -> {
-            LOG.debug("Submit " + n);
+            LOG.log("Submit " + n);
             submit(n);
         });
-        LOG.debug("Finished publishing items");
+        LOG.log("Finished publishing items");
     }
 
 }

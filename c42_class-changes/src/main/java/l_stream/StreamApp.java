@@ -11,7 +11,7 @@ public class StreamApp {
     @Test
     void demoDropWhile() {
         MethodLogger.logMethodCall();
-        Stream.of(10, 11, 12, 13, 14, 15)
+        Stream.of(10, 11, 12, 13, 14, 15, 1)
                 .dropWhile(v -> v < 13)
                 .forEach(System.out::println);
     }
@@ -20,7 +20,7 @@ public class StreamApp {
     @Test
     void demoTakeWhile() {
         MethodLogger.logMethodCall();
-        Stream.of(10, 11, 12, 13, 14, 15)
+        Stream.of(10, 11, 12, 13, 14, 15, 1)
                 .takeWhile(v -> v < 12)
                 .forEach(System.out::println);
     }
