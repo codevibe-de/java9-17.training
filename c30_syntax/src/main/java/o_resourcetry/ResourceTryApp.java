@@ -7,7 +7,7 @@ import java.io.*;
 
 public class ResourceTryApp {
 
-    public static final String FILENAME = "src/main/java/o_resourcetry/ResourceTryApp.java";
+    public static final String FILENAME = "src/main/java/o_resourcetry/data.txt";
 
     @Test
     void oldTryWithResource() {
