@@ -4,7 +4,7 @@ bin/
 .idea/
 .gradle/
 .settings/
-/x22-jpms/appl/mybuild/
+/x22-jpms/x22-app/
 
 .project
 .classpath
