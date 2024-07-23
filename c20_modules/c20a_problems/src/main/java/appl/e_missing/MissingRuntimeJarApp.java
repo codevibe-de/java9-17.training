@@ -2,8 +2,10 @@ package appl.e_missing;
 
 import book.api.BookService;
 
-// a) `mvn clean install --projects c20a_book,c20a_problems` from `./c20_modules` dir
-// b) `java -cp c20a_problems\target\c20a_problems-1.0-SNAPSHOT.jar appl.d_missing.MissingRuntimeJarApp`
+// Using a Terminal/Shell:
+// a) change into directory `./c20_modules`
+// b) execute `mvn clean install --projects c20a_book,c20a_book2,c20a_problems`
+// c) execute `java -cp c20a_problems/target/c20a_problems-1.0-SNAPSHOT.jar appl.e_missing.MissingRuntimeJarApp`
 public class MissingRuntimeJarApp {
 
     public static void main(String[] args) throws InterruptedException {
