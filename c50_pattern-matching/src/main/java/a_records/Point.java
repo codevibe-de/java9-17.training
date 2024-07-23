@@ -8,6 +8,29 @@ public record Point(
         double x,
         double y
 ) {
+//    // generated
+//    public Point(double x, double y) {
+//        this.x = x;
+//        this.y = y;
+//    }
+
+    // compact constructor
+    public Point {
+        if (x < 0 || y < 0) {
+            throw new IllegalArgumentException("x and y must be >= 0");
+        }
+    }
+
+    // additional constructors
+    public Point() {
+        this(0, 0);
+    }
+
+    public Point(double x) {
+        this(x, 0);
+    }
+
+
 }
 
 class App {
@@ -20,7 +43,8 @@ class App {
         var p2 = new Point(1.23, 4.56);
         System.out.println(p.equals(p2)); // true
 
-        var n = p.x();
+        p.x();
+        p.y();
 
         Arrays.stream(Point.class.getRecordComponents())
                 .forEach(System.out::println);

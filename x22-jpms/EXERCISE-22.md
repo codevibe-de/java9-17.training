@@ -1,6 +1,6 @@
 # Exercises for chapter "Java Platform Module System (JPMS)"
 
-**NOTE:**:
+**NOTE:**
 
 * all command-line exercises expect a terminal with `./x22-jpms` as the working directory.
 * each exercise task has a solution in branch `x22-solution/taskXX`
@@ -9,17 +9,20 @@
 
 Take a look at the existing source code in submodule `appl`.
 
-Start the application:
+Start the application main class `ModulesExerciseApp`:
 
 * in your IDE
 * and also on the command line using `mvn -q --projects=appl compile exec:exec@runClass`
 
-You should see some colorful output like:
+You should see some (hopefully colorful) output like:
 
 ````
 App starting...
 --------------------------------------------------------------------------------
 ````
+
+If the output does not have any color, you can try adding the VM-Option `-Djansi.passthrough=true` to your run
+configuration. Not critical though :)
 
 ## 01) Turn the application into a JPMS module
 
@@ -30,14 +33,25 @@ Does it still compile or can you execute it?
 
 NOTE: From now on you need to execute `mvn -q --projects=appl compile exec:exec@runModule` to start
 your application when using Maven!
-The `runModule` part identifies some other `<execution>` block in the build script,
+The `runModule` option identifies some other `<execution>` block in the Maven build script,
 which correctly sets module-path and also declares the module to launch from our main class from.
 
 ## 02) Fix it
 
 Fix your application by adding the missing `requires <module-name>` imports to your application
 module.
+
 Code completion can help you with the module names (e.g. type "jansi" and press CTRL-SPACE).
+
+Hint: You need the following modules:
+
+- `org.fusesource.jansi`
+- `org.apache.commons.lang3`
+
+How could you have found out about the necessary module names yourself?
+
+Note: In Eclipse, you might need to delete the old run configuration and create a new one to prevent an error like
+"module appl not found."
 
 ## 03) Classpath Investigation
 
@@ -93,12 +107,14 @@ For this exercise you need to
 * export the `book.api` package there
 * require `org.apache.commons.lang3` since the books-core lib is using it, too
 
-Finally, run `mvn --projects=books-core install` to deploy the new JAR to your local Maven repo.
-
 Now you can use that JPMS module in your "appl" project and make things run again by requiring
 the "x22_jpms.books_core" module there.
 
-Run `mvn -q --projects=appl compile exec:exec@runModule` and you should see:
+Finally,
+
+- execute the application in your IDE
+- or execute `mvn --projects=books-core install` in your terminal to deploy the new JAR to your local Maven repo and
+  then use `mvn -q --projects=appl compile exec:exec@runModule` to run your application
 
 ````text
 App starting...
@@ -126,15 +142,17 @@ Finally, run your application again. Does it work?
 Fix it by adding the appropriate "opens" statement
 to `x22-jpms/books-core/src/main/java/module-info.java`.
 
-Don't forget to re-install the lib so that Maven is happy: `mvn --projects=books-core install`
+Don't forget to re-install the lib so that Maven is happy: `mvn --projects=books-core install` (if you want to run
+your application on the terminal).
 
 ## 08) Integrate "books-report"
 
 Uncomment the code lines beneath `# Work with books-report API`.
 
-Adding the missing import for `Objects` is trivial -- but the other classes are not visible (yet).
+Adding the missing import for `Objects` is trivial — but the other classes are not visible (yet).
 
-Fix that using the "books-report" subproject :)
+Fix that by using the "books-report" module :) Remember that using a new module requires **two** steps (Maven and
+module-info.java).
 
 ## 09) Use transitive modules imports
 
@@ -142,9 +160,9 @@ Since "books-report" is importing the module "books-core" we can make use of a t
 import by adding the keyword "transitive" there.
 
 ````
-appl --> books-report --> books-core
-  |                        |
-  \--------(transitive)----/
+x22_jpms.appl --> x22_jpms.books_report --> x22_jpms.books_core
+  |                                             |
+  \-------------(transitive)--------------------/
 ````
 
-We can then remove the module import to "books-core" from "appl".
+We can then remove the module import to `x22_jpms.books_core` from `x22_jpms.appl`.
