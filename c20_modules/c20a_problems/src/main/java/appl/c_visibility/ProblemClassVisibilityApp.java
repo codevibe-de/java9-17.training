@@ -1,4 +1,4 @@
-package appl.b_visibility;
+package appl.c_visibility;
 
 import book.DefaultBookService;
 import book.api.BookService;
