@@ -1,17 +1,16 @@
 # Training Java 9 to 17
 
-## troubleshooting
+## About
 
-#### Eclipse: "Preview features enabled at an invalid source release"
+This repository contains source code and exercises for our training on new features in the Java versions 9 to 17.
 
-You are using an Eclipse version that is "too new" for Java 17 since it doesn't support the Java 17 preview
-features anymore:
+## Copyright
 
-https://stackoverflow.com/questions/72986374/eclipse-preview-features-enabled-at-an-invalid-source-release-level
+Copyright https://www.codevibe.de
 
-Solution: Remove `<compilerArgs>--enable-preview</compilerArgs>` from top-level pom.xml
+Written by Thomas Auinger (thomas@auinger.de), Germany.
 
-This will break compilation for `/c50_pattern-matching`, which can be fixed by setting the `<version.java>` property
-in that module's POM to `21`. 
+This source is intended to be used in conjunction with a training given by me or one of my licensees. Therefore, you
+may use segments of this code in your projects **if you took part in such a training**.
 
-Of course, you need to have a Java 21 JRE configured in Eclipse for this to work.
+In any case, it is not permitted to reuse all or parts of this project for commercial purposes without permission.

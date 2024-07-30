@@ -19,7 +19,7 @@ Implement this interface in the `DirectDebitPayment` and `CreditCardPayment` cla
 
 - DirectDebitPayment could accept the URI as a constructor argument
 - CreditCardPayment could generate the URI based on a fixed string plus some provider ID
-  returned by each concrete subtype e.g. "https://credit-card-payment.com/visa""
+  returned by each concrete subtype e.g. "https://credit-card-payment.com/visa"
 
 ## 2) Customer type
 
