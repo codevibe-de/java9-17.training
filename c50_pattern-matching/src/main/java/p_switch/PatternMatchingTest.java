@@ -18,8 +18,7 @@ public class PatternMatchingTest {
             switch (obj) {
                 case Integer i -> out.println("Integer!");
                 case String s -> out.println("String!");
-                case LocalDate localDate ->
-                        out.println("LocalDate, with year " + localDate.getYear());
+                case LocalDate localDate -> out.println("LocalDate, with year " + localDate.getYear());
                 case Object o -> out.println("Total pattern matching for Object");
             }
         }
@@ -67,7 +66,7 @@ public class PatternMatchingTest {
     /**
      * The `case null` line is commented on purpose to show that the total-type-pattern `CharSequence cs`
      * includes null. Compilation fails if uncommented.
-     *
+     * <p>
      * In this demo `CharSequence` is already a total pattern since it covers all possible types returned
      * by the method `createCharSequence()`.
      */
@@ -77,7 +76,7 @@ public class PatternMatchingTest {
         switch (obj) {
             case String s -> out.println("String");
             case StringBuffer sb -> out.println("StringBuffer");
-//            case CharSequence cs -> out.println("CharSequence");
+            case CharSequence cs -> out.println("CharSequence");
             // case null -> out.println("null");
         }
     }
