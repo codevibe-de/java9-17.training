@@ -10,6 +10,8 @@ import static utils.MethodLogger.logMethodCall;
 
 public class ReflectionApp {
 
+    // Rewriting this to a @Test based file causes problems with the module system, likely because the test would be in
+    // production and not test code and Intellij cannot cope with that
     public static void main(String[] args) {
         demoAlpha();
         demoBeta();
