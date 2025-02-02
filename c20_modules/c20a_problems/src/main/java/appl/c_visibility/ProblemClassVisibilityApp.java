@@ -10,7 +10,8 @@ public class ProblemClassVisibilityApp {
         BookService bookService = new DefaultBookService();
 
         // using a Singleton (or Factory) pattern can help to some extent, however, in our case DefaultBookService
-        // had to be declared public and hence we can still access DefaultBookService if we really want
+        // had to be declared public because the BookService Interface (which declares the singleton) and the
+        // implementation are in different packages. Hence we can still access DefaultBookService directly.
         DefaultBookService bookService2 = (DefaultBookService) BookService.INSTANCE;
     }
 

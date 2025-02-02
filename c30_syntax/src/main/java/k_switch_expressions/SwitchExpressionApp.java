@@ -55,9 +55,11 @@ public class SwitchExpressionApp {
         logMethodCall();
         int day = getDayOfWeek();
         switch (day) {
-            case 1, 2, 3, 4, 5 -> System.out.println("workday");
             case 6 -> System.out.println("saturday");
             case 7 -> System.out.println("sunday");
+            default -> {
+                System.out.println("workday");
+            }
         }
     }
 

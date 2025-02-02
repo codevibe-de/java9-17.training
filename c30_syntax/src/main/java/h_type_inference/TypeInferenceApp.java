@@ -78,11 +78,12 @@ public class TypeInferenceApp {
     void illegalImmediateAssignmentToVar() {
         logMethodCall();
         final int foo;
-        if ("1".equals("1")) {
+        if (Math.random() > 0.5) {
             foo = 42;
         } else {
             foo = 77;
         }
+        System.out.println(foo);
 //		illegal:
 //		final var bar;
 //		if ("1".equals("1"))
