@@ -17,7 +17,6 @@
         <module>c42_class-changes</module>
         <module>c50_pattern-matching</module>
         <module>misc</module>
-        <module>x22-jpms</module>
         <module>x30_syntax</module>
         <module>x50_pattern-matching</module>
         <module>c60_misc</module>
