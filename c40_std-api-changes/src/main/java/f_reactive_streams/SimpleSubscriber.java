@@ -27,7 +27,7 @@ public class SimpleSubscriber implements Flow.Subscriber<String> {
         logger.log("%s: onNext(%s)", this.id, item);
         this.subscription.request(1);
         try {
-            Thread.sleep(250);
+            Thread.sleep(500);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

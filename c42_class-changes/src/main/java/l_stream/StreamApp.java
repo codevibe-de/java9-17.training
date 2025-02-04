@@ -39,15 +39,21 @@ public class StreamApp {
     @Test
     void demoDropWhileTakeWhileForHtml() {
         MethodLogger.logMethodCall();
-        Stream.of("<html>",
-                        "<head>",
-                        "<title>Foo</title>",
-                        "</head>",
-                        "<body>",
-                        "<h1>Foo</h1>",
-                        "<p>Bar</p>",
-                        "</body>",
-                        "</html>")
+        var html = """
+                 <html>
+                    <head>
+                        <title>Foo</title>
+                    </head>
+                    <body>
+                        <h1>Foo</h1>
+                        <p>Bar</p>
+                    </body>
+                </html>
+                """;
+
+
+        html.lines()
+                .map(String::strip)
                 .dropWhile(s -> !s.equals("<body>"))
                 .skip(1)
                 .takeWhile(s -> !s.equals("</body>"))

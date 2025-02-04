@@ -2,11 +2,17 @@ package r_enhanced_random;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.random.RandomGenerator;
 import java.util.stream.Stream;
 
 public class EnhancedRandomApp {
+	
+	@Test
+	void oldTimes() {
+		Math.random();
+	}
 
     @Test
     void of() {

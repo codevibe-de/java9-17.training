@@ -7,6 +7,7 @@ public class DeprecatedService {
      */
     @Deprecated(forRemoval = true, since = "2.0")
     public String foo() {
+    	System.out.println("Calling foo()");
         return "";
     }
 
@@ -15,6 +16,7 @@ public class DeprecatedService {
      */
     @Deprecated(forRemoval = false, since = "2.1")
     public String bar() {
+    	System.out.println("Calling bar()");
         return "";
     }
 
